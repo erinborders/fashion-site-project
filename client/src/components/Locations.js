@@ -35,7 +35,7 @@ export default class Locations extends Component {
     getAllLocations() {
         axios.get('/api/locations')
             .then((res) => {
-                this.setState({message: res.data})
+                this.setState({newLocation: res.data})
             })
     }
 
