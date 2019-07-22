@@ -51,7 +51,7 @@ app.use(express.static(`${__dirname}/client/build`))
  */
 app.use('/api/locations', locationRouter)
 app.use('/api/locations/:locationId/products', productRouter)
-app.use.use('/api/users', userRouter)
+app.use('/api/users', userRouter)
 /* Step 5
  *
  * add catch all route to serve up the built react app for any request not made to our

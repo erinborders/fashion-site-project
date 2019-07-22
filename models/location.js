@@ -27,7 +27,8 @@ const mongoose = require('./connection.js')
  *
  */
 const LocationSchema = new mongoose.Schema({
- address: String
+  neighborhood: String,
+  address: String
 })
 
 /* Step 3
