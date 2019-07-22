@@ -17,7 +17,7 @@ const app = express()
  *
  */
 const { locationRouter } = require('./controllers/location.js')
-
+const { productRouter } = require('./controllers/product.js')
 
 /* Step 3
  *
@@ -50,6 +50,7 @@ app.use(express.static(`${__dirname}/client/build`))
  * the paths defined in the router.
  */
 app.use('/api/locations', locationRouter)
+app.use('/api/locations/:locationId/products', productRouter)
 
 /* Step 5
  *

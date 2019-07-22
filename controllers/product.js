@@ -92,5 +92,5 @@ productRouter.delete('/:productId', (req, res) => {
  *
  */
 module.exports = {
-  locationRouter
+  productRouter
 }

@@ -18,7 +18,8 @@ export default class Locations extends Component {
     state = {
         newLocation: {
             address: ''
-        }
+        },
+        isLocationLinkClicked: false
     }
 
     /* Step 4
@@ -49,7 +50,15 @@ export default class Locations extends Component {
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
-                <h1>Locations</h1>
+                {
+                    this.state.isLocationLinkClicked ?
+                    <div>
+                        <div>Location 1</div>
+                        <div>Location 2</div>
+                        <div>Location 3</div>
+                    </div> : <div>Locations</div>
+                        
+                }
             </div>
         )
     }
