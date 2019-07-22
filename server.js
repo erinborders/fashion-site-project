@@ -16,7 +16,7 @@ const app = express()
  * import routers from controllers/
  *
  */
-const { templateRouter } = require('./controllers/locations.js')
+const { locationRouter } = require('./controllers/location.js')
 
 
 /* Step 3

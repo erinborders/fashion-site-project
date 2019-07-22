@@ -47,11 +47,31 @@ function getAllLocations() {
   return LocationCollection.find()
 }
 
+function getLocation (locationId) {
+  return LocationCollection.findById(locationId)
+}
+
+function createLocation (location) {
+  return LocationCollection.create(location)
+}
+
+function updateLocation (locationId, updatedLocation) {
+  return LocationCollection.findByIdAndUpdate(locationId, updatedLocation, {new:true})
+}
+
+function deleteLocation (locationId) {
+  return LocationCollection.findByIdAndDelete(locationId)
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
  * object
  */
 module.exports = {
-  getAllLocations
+  getAllLocations,
+  getLocation,
+  createLocation,
+  updateLocation,
+  deleteLocation
 }
