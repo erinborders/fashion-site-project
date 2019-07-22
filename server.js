@@ -18,7 +18,7 @@ const app = express()
  */
 const { locationRouter } = require('./controllers/location.js')
 const { productRouter } = require('./controllers/product.js')
-
+const { userRouter } = require('./controllers/user.js')
 /* Step 3
  *
  * Register middleware...
@@ -51,7 +51,7 @@ app.use(express.static(`${__dirname}/client/build`))
  */
 app.use('/api/locations', locationRouter)
 app.use('/api/locations/:locationId/products', productRouter)
-
+app.use.use('/api/users', userRouter)
 /* Step 5
  *
  * add catch all route to serve up the built react app for any request not made to our

@@ -15,7 +15,7 @@ const express = require('express')
  * controller you need.
  * 
  */
-const productApi = require('../models/product.js')
+const userApi = require('../models/user.js')
 
 /* Step 3 
  * 
@@ -25,7 +25,7 @@ const productApi = require('../models/product.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const productRouter = express.Router()
+const userRouter = express.Router()
 
 /* Step 4
  * 
@@ -36,50 +36,50 @@ const productRouter = express.Router()
  *
  * TODO: delete this handler; it's just a sample
  */ 
-productRouter.get('/', (req, res) => {
-  productApi.getAllProducts()
-    .then(products => {
-      res.json(products)
+userRouter.get('/', (req, res) => {
+  userApi.getAllUsers()
+    .then(users => {
+      res.json(users)
     })
     .catch(err => {
       console.log(err)
     })
 })
 
-productRouter.get('/:productId', (req, res) => {
-  productApi.getProduct(req.params.productId)
-    .then(product => {
-      res.json(product)
+userRouter.get('/:userId', (req, res) => {
+  userApi.getUser(req.params.userId)
+    .then(user => {
+      res.json(user)
     })
     .catch(err => {
       console.log(err)
     })
 })
 
-productRouter.post('/', (req, res) => {
-  productApi.createProduct(req.body)
-    .then(newProduct => {
-      res.json(newProduct)
+userRouter.post('/', (req, res) => {
+  userApi.createUser(req.body)
+    .then(newUser => {
+      res.json(newUser)
     })
     .catch(err => {
       console.log(err)
     })
 })
 
-productRouter.put('/:productId', (req, res) => {
-  productApi.updateProduct(req.params.productId, req.body)
-    .then(updatedProduct => {
-      res.json(updatedProduct)
+userRouter.put('/:userId', (req, res) => {
+  userApi.updateUser(req.params.userId, req.body)
+    .then(updatedUser => {
+      res.json(updatedUser)
     })
     .catch(err => {
       console.log(err)
     })
 })
 
-productRouter.delete('/:productId', (req, res) => {
-  productApi.deleteProduct(req.params.productId)
-    .then(deletedProduct => {
-      res.json(deletedProduct)
+userRouter.delete('/:userId', (req, res) => {
+  userApi.deleteUser(req.params.userId)
+    .then(deletedUser => {
+      res.json(deletedUser)
     })
     .catch(err => {
       console.log(err)
@@ -92,5 +92,5 @@ productRouter.delete('/:productId', (req, res) => {
  *
  */
 module.exports = {
-  productRouter
+  userRouter
 }
