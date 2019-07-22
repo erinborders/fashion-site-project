@@ -26,8 +26,17 @@ const mongoose = require('./connection.js')
  * NOTE: skip this if you are not using mongoose
  *
  */
-const LocationSchema = new mongoose.Schema({
- address: String
+const ProductSchema = new mongoose.Schema({
+ name: String,
+ price: Number,
+ rating: Number,
+ description: String,
+ size: {
+     type: String,
+     enum: ['XS', 'S', 'M', 'L', 'XL'],
+     required: true
+ },
+ colors: String
 })
 
 /* Step 3
@@ -36,31 +45,31 @@ const LocationSchema = new mongoose.Schema({
  * NOTE: skip this if you are not using mongoose
  *
  */
-const LocationCollection = mongoose.model('Location', LocationSchema)
+const ProductCollection = mongoose.model('Product', ProductSchema)
 
 /* Step 4
  *
  * TODO: delete this it's just a sample
  *
  */
-function getAllLocations() {
-  return LocationCollection.find()
+function getAllProducts() {
+  return ProductCollection.find()
 }
 
-function getLocation (locationId) {
-  return LocationCollection.findById(locationId)
+function getProduct (productId) {
+  return ProductCollection.findById(productId)
 }
 
-function createLocation (location) {
-  return LocationCollection.create(location)
+function createProduct (product) {
+  return ProductCollection.create(product)
 }
 
-function updateLocation (locationId, updatedLocation) {
-  return LocationCollection.findByIdAndUpdate(locationId, updatedLocation, {new:true})
+function updateProduct (productId, updatedProduct) {
+  return ProductCollection.findByIdAndUpdate(productId, updatedProduct, {new:true})
 }
 
-function deleteLocation (locationId) {
-  return LocationCollection.findByIdAndDelete(locationId)
+function deleteProduct (productId) {
+  return ProductCollection.findByIdAndDelete(productId)
 }
 
 /* Step 5
@@ -69,9 +78,9 @@ function deleteLocation (locationId) {
  * object
  */
 module.exports = {
-  getAllLocations,
-  getLocation,
-  createLocation,
-  updateLocation,
-  deleteLocation
+  getAllProducts,
+  getProduct,
+  createProduct,
+  updateProduct,
+  deleteProduct
 }

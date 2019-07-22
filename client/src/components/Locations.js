@@ -3,19 +3,22 @@
  */
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 /* Step 2
  * Rename this class to reflect the component being created
  *
  */
-export default class HelloWorld extends Component {
+export default class Locations extends Component {
 
     /* Step 3
     * Create a state for the component to store view data
     *
     */
     state = {
-        message: ''
+        newLocation: {
+            address: ''
+        }
     }
 
     /* Step 4
@@ -26,7 +29,11 @@ export default class HelloWorld extends Component {
     *   -REMINDER remember `setState` it is an async function
     */
     componentDidMount() {
-        axios.get('/api/helloworld')
+        this.getAllLocations()
+    }
+
+    getAllLocations() {
+        axios.get('/api/locations')
             .then((res) => {
                 this.setState({message: res.data})
             })
@@ -42,7 +49,7 @@ export default class HelloWorld extends Component {
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
-                <h1>{this.state.message}</h1>
+                <h1>Locations</h1>
             </div>
         )
     }
