@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Locations from './Locations'
 
 export default class NavBar extends Component {
+
     render() {
         return (
             <div>

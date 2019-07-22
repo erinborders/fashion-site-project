@@ -4,6 +4,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import SingleLocation from './SingleLocation';
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -16,7 +17,9 @@ export default class Locations extends Component {
     *
     */
     state = {
+        locations: [],
         newLocation: {
+            neighborhood: '',
             address: ''
         },
         isLocationLinkClicked: false
@@ -36,7 +39,15 @@ export default class Locations extends Component {
     getAllLocations() {
         axios.get('/api/locations')
             .then((res) => {
-                this.setState({newLocation: res.data})
+                this.setState({locations: res.data})
+            })
+    }
+
+    handleCreateSubmit = (event) => {
+        axios.post('/api/locations', this.state.newLocation)
+            .then(() => {
+                this.setState({isLocationLinkClicked: false})
+                this.getAllLocations()
             })
     }
 
@@ -47,15 +58,27 @@ export default class Locations extends Component {
     *
     */
     render() {
+
+        let locationsList = this.state.locations.map((location, index) => {
+            return(
+                <div>
+                    <SingleLocation
+                        key={index}
+                        neighborhood={location.neighborhood}
+                        address={location.address}
+                        id={location._id}
+                        locationId={location.locationId}
+                         />
+                </div>
+            )
+        })
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
                 {
                     this.state.isLocationLinkClicked ?
                     <div>
-                        <div>Location 1</div>
-                        <div>Location 2</div>
-                        <div>Location 3</div>
+                        {locationsList}
                     </div> : <div>Locations</div>
                         
                 }

@@ -28,15 +28,16 @@ const mongoose = require('./connection.js')
  */
 const ProductSchema = new mongoose.Schema({
  name: String,
- price: Number,
- rating: Number,
+ price: String,
+ rating: String,
  description: String,
  size: {
      type: String,
      enum: ['XS', 'S', 'M', 'L', 'XL'],
      required: true
  },
- colors: String
+ colors: String,
+ locationId: String
 })
 
 /* Step 3

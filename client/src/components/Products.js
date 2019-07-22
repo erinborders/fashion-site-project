@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default class Products extends Component {
 
     state = {
+        products: [],
         newProduct: {
             name: '',
             price: '',
             rating: '',
             description: '',
             size: '',
-            colors: ''
-        }
+            colors: '',
+            locationId: ''
+        },
+        isNewProductFormDisplayed: false
     }
 
     /* Step 4
@@ -28,14 +32,103 @@ export default class Products extends Component {
     getAllProducts() {
         axios.get('/api/products')
             .then((res) => {
-                this.setState({newProduct: res.data})
+                this.setState({products: res.data})
             })
     }
 
+    handleInputChange = (event) => {
+        const newProduct = {...this.state.newProduct}
+        newProduct[event.target.name] = event.target.value
+
+        this.setState({newProduct})
+    }
+
+    handleCreateSubmit = (event) => {
+        event.preventDefault()
+        this.setState({locationId: this.props.match.params.locationId})//set locationId to parameter location
+        axios.post('/api/products', this.state.newProduct)
+            .then(() => {
+                this.setState({isNewProductFormDisplayed: false})
+                this.getAllProducts()
+            })
+    }
+
+    handleCreateToggleButton = () => {
+        this.setState((state) => {
+            return {isNewProductFormDisplayed: !state.isNewProductFormDisplayed}
+        })
+    }
+
     render() {
+
+        let productsList = this.state.products.map((product, index) => {
+            return(
+                <div>
+                    <Link to={`/products/${product._id}`} key={index}>{product.name}</Link>
+                </div>
+            )
+        })
         return (
             <div>
-                <h1>Products</h1>
+                {
+                        this.state.isNewProductFormDisplayed ?
+                        <form onSubmit={this.handleCreateSubmit}>
+                            <label htmlFor="product-name" >Product Name:</label>
+                            <input 
+                                id="product-name" 
+                                name="name" 
+                                type="text" 
+                                onChange={this.handleInputChange} 
+                                value={this.state.newProduct.name} />
+
+                            <label htmlFor="product-description" >Product Description:</label>
+                            <input 
+                                id="product-description" 
+                                name="description" 
+                                type="text" 
+                                onChange={this.handleInputChange} 
+                                value={this.state.newProduct.description}/>
+
+                            <label htmlFor="product-size" >Product Size:</label>
+                            <input 
+                                id="product-size" 
+                                name="size" 
+                                type="text" 
+                                onChange={this.handleInputChange} 
+                                value={this.state.newProduct.size}/>
+                                
+                            <label htmlFor="product-colors" >Product Colors:</label>
+                            <input 
+                                id="product-colors" 
+                                name="colors" 
+                                type="text" 
+                                onChange={this.handleInputChange} 
+                                value={this.state.newProduct.colors}/>
+
+                            <label htmlFor="product-price" >Product Price:</label>
+                            <input 
+                                id="product-price" 
+                                name="price" 
+                                type="text" 
+                                onChange={this.handleInputChange} 
+                                value={this.state.newProduct.price}/>
+
+                            <label htmlFor="product-rating" >Product Rating:</label>
+                            <input 
+                                id="product-rating" 
+                                name="rating" 
+                                type="text" 
+                                onChange={this.handleInputChange} 
+                                value={this.state.newProduct.rating}/>
+
+                            <input type="submit" value="Create Product" />
+                        </form> :
+                        <div>
+                            {productsList}
+                        <button onClick={this.handleCreateToggleButton}>Create Product</button>
+                        </div>
+
+                    }
             </div>
         )
     }
