@@ -9,7 +9,7 @@
  * NOTE: skip this if you are not using mongoose
  *
  */
-//const mongoose = require('./connection.js')
+const mongoose = require('./connection.js')
 
 /* Step 1 alternative
  *
@@ -18,7 +18,7 @@
  * your data once you stop running your server.
  *
  */
-global.sampleModel = [];
+// global.sampleModel = [];
 
 /* Step 2
  *
@@ -26,9 +26,9 @@ global.sampleModel = [];
  * NOTE: skip this if you are not using mongoose
  *
  */
-//const SampleModelSchema = new mongoose.Schema({
-//  name: String
-//})
+const LocationSchema = new mongoose.Schema({
+ name: String
+})
 
 /* Step 3
  *
@@ -36,15 +36,15 @@ global.sampleModel = [];
  * NOTE: skip this if you are not using mongoose
  *
  */
-//const SampleCollection = mongoose.model('Sample', SampleModelSchema)
+const LocationCollection = mongoose.model('Location', LocationSchema)
 
 /* Step 4
  *
  * TODO: delete this it's just a sample
  *
  */
-function getHelloWorldString() {
-  return 'hello world'
+function getAllLocations() {
+  return LocationCollection.find()
 }
 
 /* Step 5
@@ -53,5 +53,5 @@ function getHelloWorldString() {
  * object
  */
 module.exports = {
-  getHelloWorldString
+  getAllLocations
 }
