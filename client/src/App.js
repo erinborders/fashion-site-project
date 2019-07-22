@@ -9,14 +9,14 @@ import './App.css';
 class App extends Component {
 
   render() {
-    
+
     return (
       <div className="App">
         <Router>
           <NavBar />
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route path="/locations/:locationId" component={SingleLocation} />
+            <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props}/>} />
             
           </Switch>
           <Footer />

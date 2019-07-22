@@ -4,9 +4,9 @@ import axios from 'axios'
 import Products from './Products'
 
 export default class SingleLocation extends Component {
-    state = {
-        singleLocationsProducts: []
-    }
+    // state = {
+    //     singleLocationsProducts: []
+    // }
 
     // getSingleLocationsProducts() {
     //     axios.get('/api/locations')
@@ -27,7 +27,7 @@ export default class SingleLocation extends Component {
                 {
                     this.props.match
                         ? <div>Fashion Vera
-                        <Products /></div>
+                        <Products match={this.props.match}/></div>
                         : null
                 }
             </div>

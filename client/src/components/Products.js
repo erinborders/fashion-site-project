@@ -45,9 +45,10 @@ export default class Products extends Component {
 
     handleCreateSubmit = (event) => {
         event.preventDefault()
-        this.setState({locationId: this.props.match.params.locationId})//set locationId to parameter location
-        axios.post('/api/products', this.state.newProduct)
+        // this.setState({locationId: this.props.match.params.locationId})//set locationId to parameter location
+        axios.post(`/api/locations/${this.props.match.params.locationId}`, this.state.newProduct)
             .then(() => {
+                this.state.newProduct.locationId = this.props.match.params.locationId
                 this.setState({isNewProductFormDisplayed: false})
                 this.getAllProducts()
             })
