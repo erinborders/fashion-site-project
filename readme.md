@@ -1,7 +1,7 @@
 # Fashion Site
 
 - Project Board: https://trello.com/b/cZngM6Ol/project-3
-- Deployed App:
+- Deployed App: https://evening-retreat-48118.herokuapp.com/
 
 # Overview
 
