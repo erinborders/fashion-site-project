@@ -36,6 +36,19 @@ export default class Locations extends Component {
         this.getAllLocations()
     }
 
+    
+    //to solve the problem of posting new products?
+
+    // axios.all([
+    //     axios.get('https://api.github.com/users/codeheaven-io');
+    //     axios.get('https://api.github.com/users/codeheaven-io/repos')
+    //   ])
+    //   .then(axios.spread(function (userResponse, reposResponse) {
+    //     //... but this callback will be executed only when both requests are complete.
+    //     console.log('User', userResponse.data);
+    //     console.log('Repositories', reposResponse.data);
+    //   }));
+
     getAllLocations() {
         axios.get('/api/locations')
             .then((res) => {
