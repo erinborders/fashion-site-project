@@ -18,6 +18,7 @@ export default class Locations extends Component {
     */
     state = {
         locations: [],
+        products: [],
         newLocation: {
             neighborhood: '',
             address: ''
@@ -39,21 +40,22 @@ export default class Locations extends Component {
     
     //to solve the problem of posting new products?
 
-    // axios.all([
-    //     axios.get('https://api.github.com/users/codeheaven-io');
-    //     axios.get('https://api.github.com/users/codeheaven-io/repos')
-    //   ])
-    //   .then(axios.spread(function (userResponse, reposResponse) {
-    //     //... but this callback will be executed only when both requests are complete.
-    //     console.log('User', userResponse.data);
-    //     console.log('Repositories', reposResponse.data);
-    //   }));
+    
 
     getAllLocations() {
-        axios.get('/api/locations')
-            .then((res) => {
-                this.setState({locations: res.data})
-            })
+        // axios.get('/api/locations')
+        //     .then((res) => {
+        //         this.setState({locations: res.data})
+        //     })
+        axios.all([
+            axios.get('/api/locations'),
+            axios.get('/api/products')
+          ])
+          .then(axios.spread((locations, products) => {
+            //... but this callback will be executed only when both requests are complete.
+            this.setState({locations: locations.data})
+            this.setState({products: products.data})
+          }))
     }
 
     handleCreateSubmit = (event) => {

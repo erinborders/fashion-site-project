@@ -30,9 +30,9 @@ export default class LogIn extends Component {
   }
 
   render () {
-    // if (this.state.redirect) {
-    //   return (<Redirect to="/user-profile"/>)
-    // }
+    if (this.state.redirect) {
+      return (<Redirect to="/user-profile"/>)
+    }
 
     return (
       <div>

@@ -14,7 +14,7 @@ export default class NavBar extends Component {
                 {/* <a href="#">Search</a> */}
                 <Locations />
                 {
-                    isLoggedIn ?
+                    this.state.isLoggedIn ?
                     <Link to="/user-profile">Account</Link> :
                     <LogIn mockLogIn={this.props.mockLogIn}/>
                 }
