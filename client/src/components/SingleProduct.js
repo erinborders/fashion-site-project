@@ -5,7 +5,8 @@ export default class SingleProduct extends Component {
     render() {
         return (
             <div>
-                <Link to={`/products/${this.props.id}`} key={index}>{product.name}>{this.props.name}</Link>
+                {/* <Link to={`/products/${this.props.id}`} key={this.props.index}>{this.props.name}</Link> */}
+                <p>Product</p>
             </div>
         )
     }
