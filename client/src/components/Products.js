@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import SingleProduct from './SingleProduct'
 
 export default class Products extends Component {
 
@@ -30,8 +31,9 @@ export default class Products extends Component {
     }
 
     getAllProducts() {
-        axios.get('/api/products')
+        axios.get(`/api/products`)
             .then((res) => {
+                console.log(res.data)
                 this.setState({products: res.data})
             })
     }
@@ -39,16 +41,17 @@ export default class Products extends Component {
     handleInputChange = (event) => {
         const newProduct = {...this.state.newProduct}
         newProduct[event.target.name] = event.target.value
+        newProduct.locationId = this.props.match.params.locationId
 
         this.setState({newProduct})
     }
 
     handleCreateSubmit = (event) => {
         event.preventDefault()
-        // this.setState({locationId: this.props.match.params.locationId})//set locationId to parameter location
-        axios.post(`/api/locations/${this.props.match.params.locationId}`, this.state.newProduct)
+        //set locationId to parameter location
+        axios.post(`/api/products`, this.state.newProduct)
             .then(() => {
-                this.state.newProduct.locationId = this.props.match.params.locationId
+                // this.state.newProduct.locationId = this.props.match.params.locationId
                 this.setState({isNewProductFormDisplayed: false})
                 this.getAllProducts()
             })
@@ -65,7 +68,16 @@ export default class Products extends Component {
         let productsList = this.state.products.map((product, index) => {
             return(
                 <div>
-                    <Link to={`/products/${product._id}`} key={index}>{product.name}</Link>
+                    <SingleProduct
+                        key={index}
+                        id={product._id}
+                        name={product.name}
+                        price={product.price}
+                        rating={product.rating}
+                        description={product.description}
+                        size={product.size}
+                        colors={product.colors}
+                        locationId={product.locationId} />
                 </div>
             )
         })

@@ -4,6 +4,7 @@ import Home from './components/Home.js'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SingleLocation from './components/SingleLocation'
+import Products from './components/Products'
 import './App.css';
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props}/>} />
-            
+            <Route path="/products" render={(props) => <Products {...props} />} />
           </Switch>
           <Footer />
         </Router>

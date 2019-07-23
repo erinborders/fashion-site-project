@@ -51,6 +51,12 @@ export default class Locations extends Component {
             })
     }
 
+    handleLocationButtonToggle = () => {
+        this.setState((state) => {
+            return {isLocationLinkClicked: !state.isLocationLinkClicked}
+        })
+    }
+
     /* Step 5
     *  The render function manages what is shown in the browser
     *  TODO: delete the jsx returned
@@ -79,7 +85,7 @@ export default class Locations extends Component {
                     this.state.isLocationLinkClicked ?
                     <div>
                         {locationsList}
-                    </div> : <div>Locations</div>
+                    </div> : <button onClick={this.handleLocationButtonToggle}>Locations</button>
                         
                 }
             </div>
