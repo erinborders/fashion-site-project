@@ -6,41 +6,59 @@ import Footer from './components/Footer'
 import SingleLocation from './components/SingleLocation'
 import Products from './components/Products'
 import UserProfile from './components/UserProfile'
+import Users from './components/Users'
+import axios from 'axios'
 import './App.css';
 
 class App extends Component {
   state = {
-    user: {
+    users: [],
+    newUser: {
       userName: '',
       password: ''
     }
   }
 
+  componentDidMount() {
+    this.getAllUsers()
+}
+
+getAllUsers() {
+    axios.get('/api/users')
+      .then(res => {
+          this.setState({users: res.data})
+      })
+}
+
   mockLogIn = (logInInfo) => {
-      const newUser = {...this.state.user}
+      const newUser = {...this.state.newUser}
       newUser.userName = logInInfo.userName
       newUser.password = logInInfo.password
-      this.setState({user: newUser})
+      this.setState({newUser})
+  }
+
+  setStateOfUsers = (users) => {
+    console.log(this.state.users)
+    this.setState({users})
   }
 
   render() {
-    let UserComponent = () => <UserProfile 
-        userName={this.state.user.userName} 
-        password={this.state.user.password}/>
 
     return (
       <div className="App">
         <Router>
           <NavBar 
-              user={this.state.user}
-              userName={this.state.user.userName}
-              password={this.state.user.password}
+              newUser={this.state.newUser}
+              userName={this.state.newUser.userName}
+              password={this.state.newUser.password}
+              setStateOfUsers={this.setStateOfUsers}
               mockLogIn={this.mockLogIn} />
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props}/>} />
             <Route path="/products" render={(props) => <Products {...props} />} />
-            <Route path="/user-profile"  render={UserComponent}/>
+            <Route path="/users/:userId"  render={(props) => <UserProfile {...props} userName={this.state.newUser.userName} password={this.state.newUser.password}/>}/>
+            <Route path="/users" render={(props) => <Users {...props} users={this.state.users} />} />
           </Switch>
           <Footer />
         </Router>

@@ -37,11 +37,6 @@ export default class Locations extends Component {
         this.getAllLocations()
     }
 
-    
-    //to solve the problem of posting new products?
-
-    
-
     getAllLocations() {
         // axios.get('/api/locations')
         //     .then((res) => {
