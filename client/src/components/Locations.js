@@ -23,7 +23,8 @@ export default class Locations extends Component {
             neighborhood: '',
             address: ''
         },
-        isLocationLinkClicked: false
+        isLocationLinkClicked: false,
+        isCreateLocationClicked: false
     }
 
     /* Step 4
@@ -38,10 +39,6 @@ export default class Locations extends Component {
     }
 
     getAllLocations() {
-        // axios.get('/api/locations')
-        //     .then((res) => {
-        //         this.setState({locations: res.data})
-        //     })
         axios.all([
             axios.get('/api/locations'),
             axios.get('/api/products')
@@ -83,7 +80,6 @@ export default class Locations extends Component {
                         neighborhood={location.neighborhood}
                         address={location.address}
                         id={location._id}
-                        locationId={location.locationId}
                          />
                 </div>
             )

@@ -21,25 +21,25 @@ class App extends Component {
 
   componentDidMount() {
     this.getAllUsers()
-}
+  }
 
-getAllUsers() {
+  getAllUsers() {
     axios.get('/api/users')
       .then(res => {
-          this.setState({users: res.data})
+        this.setState({ users: res.data })
       })
-}
+  }
 
   mockLogIn = (logInInfo) => {
-      const newUser = {...this.state.newUser}
-      newUser.userName = logInInfo.userName
-      newUser.password = logInInfo.password
-      this.setState({newUser})
+    const newUser = { ...this.state.newUser }
+    newUser.userName = logInInfo.userName
+    newUser.password = logInInfo.password
+    this.setState({ newUser })
   }
 
   setStateOfUsers = (users) => {
-    console.log(this.state.users)
-    this.setState({users})
+    this.setState({ users })
+    this.getAllUsers()
   }
 
   render() {
@@ -47,17 +47,18 @@ getAllUsers() {
     return (
       <div className="App">
         <Router>
-          <NavBar 
-              newUser={this.state.newUser}
-              userName={this.state.newUser.userName}
-              password={this.state.newUser.password}
-              setStateOfUsers={this.setStateOfUsers}
-              mockLogIn={this.mockLogIn} />
+          <NavBar
+            newUser={this.state.newUser}
+            userName={this.state.newUser.userName}
+            password={this.state.newUser.password}
+            setStateOfUsers={this.setStateOfUsers}
+            mockLogIn={this.mockLogIn} />
           <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props}/>} />
+            <Route exact path="/" component={Home} />
+            <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props} />} />
             <Route path="/products" render={(props) => <Products {...props} />} />
-            <Route path="/users/:userId"  render={(props) => <UserProfile {...props} userName={this.state.newUser.userName} password={this.state.newUser.password}/>}/>
+            <Route path="/users/:userId" render={(props) => <UserProfile {...props} setStateOfUsers={this.setStateOfUsers} users={this.state.users}/>} />
+            {/* <Route path="/users/:userId" component={UserProfile} /> */}
             <Route path="/users" render={(props) => <Users {...props} users={this.state.users} />} />
           </Switch>
           <Footer />

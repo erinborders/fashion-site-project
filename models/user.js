@@ -27,10 +27,8 @@ const mongoose = require('./connection.js')
  *
  */
 const UserSchema = new mongoose.Schema({
- user: {
      userName: String,
      password: String
- }
 })
 
 /* Step 3

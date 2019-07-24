@@ -6,7 +6,9 @@ export default class SingleProduct extends Component {
         return (
             <div>
                 {/* <Link to={`/products/${this.props.id}`} key={this.props.index}>{this.props.name}</Link> */}
-                <p>Product</p>
+                {/* TO DO: ADD DELETE BUTTON */}
+                <div>{this.props.name}</div>
+            
             </div>
         )
     }

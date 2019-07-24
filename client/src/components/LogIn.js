@@ -58,12 +58,6 @@ export default class LogIn extends Component {
   render () {
     if (this.state.redirect) {
       return (<Redirect to={`/`}/>)
-    //     // return (
-    //     //     <Redirect to={{
-    //     //         pathname: '/',
-    //     //         state: { isLoggedIn: true}
-    //     //     }} />
-    //     // )
     }
 
     return (
@@ -81,7 +75,7 @@ export default class LogIn extends Component {
               <label htmlFor="password">Password</label>
               <input type="password" name="password" onChange={this.handleChange} value={this.state.newUser.password}/>
             </div>
-            <button>Log In</button>
+            <button>Create Account</button>
           </form>
         }
       </div>
