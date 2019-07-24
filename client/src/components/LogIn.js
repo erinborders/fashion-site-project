@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-
+// TO DO: RENAME THIS FILE CREATE ACCOUNT
 export default class LogIn extends Component {
   
   state = {

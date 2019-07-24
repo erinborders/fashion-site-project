@@ -21,7 +21,7 @@ export default class SingleLocation extends Component {
     }
 
     render() {
-        
+        // TO DO: MAKE A DELETE BUTTON FOR A SINGLE LOCATION
         return (
             <div>
                 <Link to={`/locations/${this.props.id}`}>{this.props.neighborhood}</Link>
@@ -29,6 +29,7 @@ export default class SingleLocation extends Component {
                 {
                     this.props.match
                         ? <div>Fashion Vera
+                            <button>Delete Location</button>
                             {/* TO DO: ORGANIZE THIS */}
                         {this.state.products.map(product => {
             if(product.locationId == this.props.match.params.locationId) {
