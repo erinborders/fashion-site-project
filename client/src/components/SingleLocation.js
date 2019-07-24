@@ -49,7 +49,6 @@ export default class SingleLocation extends Component {
             }
             
         })}
-                        {/* {productsList} */}
                         </div>
                         : null
                 }

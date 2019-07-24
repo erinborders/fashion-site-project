@@ -91,6 +91,7 @@ export default class Locations extends Component {
                     this.state.isLocationLinkClicked ?
                     <div>
                         {locationsList}
+                        <button>Create Location</button>
                     </div> : <button onClick={this.handleLocationButtonToggle}>Locations</button>
                         
                 }

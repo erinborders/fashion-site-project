@@ -63,26 +63,6 @@ export default class Products extends Component {
     }
 
     render() {
-        let filteredProducts = this.state.products.filter(product => {
-            return product.locationId === this.props.locationId 
-        })
-
-        let filteredProductList = filteredProducts.map(product => {
-            return(
-                <div>
-                    <SingleProduct
-                        key={product._id}
-                        id={product._id}
-                        name={product.name}
-                        price={product.price}
-                        rating={product.rating}
-                        description={product.description}
-                        size={product.size}
-                        colors={product.colors}
-                        locationId={product.locationId} />
-                </div>
-            )
-        })
 
         let productsList = this.state.products.map((product, index) => {
             return(
@@ -155,69 +135,11 @@ export default class Products extends Component {
 
                             <input type="submit" value="Create Product" />
                         </form> : 
-                        <div>{filteredProductList}</div> 
+                        <div>
+                        {productsList}
+                        </div> 
 
                     }
-                    {/* {
-                        (!this.props.match) ?
-                        <div>
-                            {productsList}
-                        </div> : this.state.isNewProductFormDisplayed ?
-                        <form onSubmit={this.handleCreateSubmit}>
-                            <label htmlFor="product-name" >Product Name:</label>
-                            <input 
-                                id="product-name" 
-                                name="name" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.name} />
-
-                            <label htmlFor="product-description" >Product Description:</label>
-                            <input 
-                                id="product-description" 
-                                name="description" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.description}/>
-
-                            <label htmlFor="product-size" >Product Size:</label>
-                            <input 
-                                id="product-size" 
-                                name="size" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.size}/>
-                                
-                            <label htmlFor="product-colors" >Product Colors:</label>
-                            <input 
-                                id="product-colors" 
-                                name="colors" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.colors}/>
-
-                            <label htmlFor="product-price" >Product Price:</label>
-                            <input 
-                                id="product-price" 
-                                name="price" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.price}/>
-
-                            <label htmlFor="product-rating" >Product Rating:</label>
-                            <input 
-                                id="product-rating" 
-                                name="rating" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.rating}/>
-
-                            <input type="submit" value="Create Product" />
-                            </form> : <div>
-                            {filteredProductList}
-                            <button onClick={this.handleCreateToggleButton}>Create Product</button>
-                            </div>
-                    } */}
             </div>
         )
     }
