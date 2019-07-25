@@ -117,6 +117,14 @@ export default class Products extends Component {
                                 onChange={this.handleInputChange} 
                                 value={this.state.newProduct.rating}/>
 
+                            <label htmlFor="product-image">Product Image</label>
+                            <input
+                                id="product-image"
+                                name="image"
+                                type="text"
+                                onChange={this.handleInputChange}
+                                value={this.state.newProduct.image} />
+
                             <input type="submit" value="Create Product" />
                         </form> 
                         

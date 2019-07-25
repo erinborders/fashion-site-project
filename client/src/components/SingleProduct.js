@@ -44,7 +44,10 @@ export default class SingleProduct extends Component {
     render() {
         return (
             <div>
-                {/* <Link to={`/products`}>Create Product</Link> */}
+                {/* TO DO: ADD TERNARY SO THAT IMAGE DOESN'T SHOW IF IT'S NOT ENTERED */}
+                <div>
+                    <img src={this.state.product.image} alt={`A picture of ${this.props.name}`} />
+                </div>
                 
                 <div>
                     <h1>{this.props.name}</h1>
@@ -106,6 +109,14 @@ export default class SingleProduct extends Component {
                                 type="text" 
                                 onChange={this.handleInputChange} 
                                 value={this.state.product.rating}/>
+
+                            <label htmlFor="product-image">Product Image</label>
+                            <input
+                                id="product-image"
+                                name="image"
+                                type="text"
+                                onChange={this.handleInputChange}
+                                value={this.state.product.image} />
 
                             <input type="submit" value="Edit Product" />
                         </form> 

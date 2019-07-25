@@ -20,6 +20,8 @@ export default class ContactUs extends Component {
                     you must be well naked. Success isn't about the 
                     end result, it's about what you learn along the 
                     way. Let us know what we can learn!</p>
+
+                    {/* TO DO: WHEN YOU CLICK THE SUBMIT BUTTON, A MESSAGE APPEARS THAT SAYS THANKS FOR REACHING OUT */}
                     <form>
                         <input placeholder="Message" />
                         <input placeholder="Email Address"/>
