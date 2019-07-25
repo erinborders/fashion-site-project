@@ -45,6 +45,7 @@ export default class SingleProduct extends Component {
         return (
             <div>
                 {/* TO DO: ADD TERNARY SO THAT IMAGE DOESN'T SHOW IF IT'S NOT ENTERED */}
+                {/* TO DO: PUT IMAGES INTO TEST DATA FOR HEROKU SO I CAN HAVE A CAROUSEL */}
                 <div>
                     <img src={this.state.product.image} alt={`A picture of ${this.props.name}`} />
                 </div>
