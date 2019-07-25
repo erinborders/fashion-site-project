@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserProfile from './UserProfile';
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export default class Users extends Component {
@@ -19,6 +20,7 @@ export default class Users extends Component {
         })
         return (
             <div>
+                <Link to="/">Home</Link>
                 <h1>Users</h1>
                 {usersList}
             </div>

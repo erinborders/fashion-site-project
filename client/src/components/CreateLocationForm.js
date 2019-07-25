@@ -37,7 +37,7 @@ export default class Locations extends Component {
     componentDidMount() {
         this.getAllLocations()
     }
-
+// TO DO: CHANGE SO THAT IT REFRESHES THE PAGE WITH NEW LOCATION
     getAllLocations() {
         axios.all([
             axios.get('/api/locations'),
@@ -67,7 +67,7 @@ export default class Locations extends Component {
             })
     }
 
-    // TO DO: CHANGE THIS TO TOGGLE CREATE LOCATION FORM
+    
     handleLocationButtonToggle = () => {
         this.setState((state) => {
             return {isLocationLinkClicked: !state.isLocationLinkClicked}
@@ -84,6 +84,7 @@ export default class Locations extends Component {
 
         return (
             <div>
+                <h3>Add a Location</h3>
                  <form onSubmit={this.handleCreateSubmit}>
             <div>
               <label htmlFor="neighborhood">Neighborhood:</label>
