@@ -8,6 +8,7 @@ import Products from './components/Products'
 import UserProfile from './components/UserProfile'
 import Users from './components/Users'
 import About from './components/About'
+import ContactUs from './components/ContactUs'
 import axios from 'axios'
 import './App.css';
 import SingleProduct from './components/SingleProduct.js';
@@ -58,6 +59,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
+            <Route path="/contact" component={ContactUs} />
             <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props} />} />
             {/* <Route path="/products/:productId" component={SingleProduct} /> */}
             <Route path="/products" render={(props) => <Products {...props} />} />
