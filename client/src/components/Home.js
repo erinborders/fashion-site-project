@@ -5,6 +5,7 @@ import BlackGirlsDancing from './images/black girls dancing.gif'
 import Walking from './images/walking.gif'
 import SquadMagic from './images/squad magic.gif'
 import PrimpingHair from './images/primping hair.gif'
+import TealOutfits from './images/teal outfits.jpg'
 import Carousel from 'react-bootstrap/Carousel'
 import AdminView from './AdminView'
 import Products from './Products'
@@ -75,7 +76,15 @@ export default class Home extends Component {
                     </Carousel>
                     <span><h1>Fashion Vera</h1></span>
                 </div>
-                
+                <div>
+                    <img
+                        src={TealOutfits}
+                        height="500px" 
+                        width="950px"
+                        style={{objectFit: "contain"}}
+                        />
+                </div>
+                <h1>Products</h1>
                 <Products />
             </div>
         )
