@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 export default class UserProfile extends Component {
-    state = {
-        user: {
-            userName: '',
-            password: ''
-        }
-    }
+    // state = {
+    //     user: {
+    //         userName: '',
+    //         password: ''
+    //     }
+    // }
     
+    // TO DO: SET A LOCAL HISTORY FOR USERS
+
     // componentDidMount() {
     //     this.getOneUser()
     // }

@@ -11,6 +11,7 @@ export default class SingleProduct extends Component {
         axios.get(`/api/products/${this.props.id}`)
             .then(res => {
                 this.setState({product: res.data})
+                console.log(this.state.product)
             })
     }
 
@@ -45,7 +46,11 @@ export default class SingleProduct extends Component {
             <div>
                 {/* <Link to={`/products`}>Create Product</Link> */}
                 
-                <div><h1>{this.props.name}</h1></div>
+                <div>
+                    <h1>{this.props.name}</h1>
+                    {/* TO DO: FIGURE OUT HOW TO LINK TO AN INDIVIDUAL PRODUCT PAGE */}
+                    {/* <Link to={`/products/${this.state.product._id}`}>{this.props.name}</Link> */}
+                </div>
 
                 {/* TO DO: CHANGE THIS HEADER */}
                 {/* TO DO: CHANGE DELETE FUNCTION SO IT ACTUALLY REFRESHES THE PAGE */}

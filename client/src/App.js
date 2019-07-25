@@ -9,6 +9,7 @@ import UserProfile from './components/UserProfile'
 import Users from './components/Users'
 import axios from 'axios'
 import './App.css';
+import SingleProduct from './components/SingleProduct.js';
 
 class App extends Component {
   state = {
@@ -56,6 +57,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props} />} />
+            {/* <Route path="/products/:productId" component={SingleProduct} /> */}
             <Route path="/products" render={(props) => <Products {...props} />} />
             <Route path="/users/:userId" render={(props) => <UserProfile {...props} setStateOfUsers={this.setStateOfUsers} users={this.state.users}/>} />
             {/* <Route path="/users/:userId" component={UserProfile} /> */}
