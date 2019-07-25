@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Products from './Products'
+import { Redirect } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
 
 export default class SingleLocation extends Component {
     state = {
-        products: []
+        products: [],
+        redirect: false
     }
 
     componentDidMount() {
@@ -20,8 +22,20 @@ export default class SingleLocation extends Component {
             })
     }
 
+    deleteLocation = (e) => {
+        e.preventDefault()
+        
+        axios.delete(`/api/locations/${this.props.match.params.locationId}`)
+            .then(() => {
+                this.setState({redirect: true})
+            })
+    }
+
     render() {
-        // TO DO: MAKE A DELETE BUTTON FOR A SINGLE LOCATION
+        if (this.state.redirect) {
+            return (<Redirect to={`/`}/>)
+          }
+        
         return (
             <div>
                 <Link to={`/locations/${this.props.id}`}>{this.props.neighborhood}</Link>
@@ -29,7 +43,7 @@ export default class SingleLocation extends Component {
                 {
                     this.props.match
                         ? <div>Fashion Vera
-                            <button>Delete Location</button>
+                            <button onClick={this.deleteLocation}>Delete Location</button>
                             {/* TO DO: ORGANIZE THIS */}
                         {this.state.products.map(product => {
             if(product.locationId == this.props.match.params.locationId) {
