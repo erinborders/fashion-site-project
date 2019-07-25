@@ -77,7 +77,7 @@ export default class Home extends Component {
                     </Carousel>
                     <span><h1>Fashion Vera</h1></span>
                 </div>
-                <div>
+                {/* <div>
                     <img
                         src={TealOutfits}
                         height="500px" 
@@ -86,7 +86,7 @@ export default class Home extends Component {
                         />
                 </div>
                 <h1>Products</h1>
-                <Products />
+                <Products /> */}
             </div>
         )
     }

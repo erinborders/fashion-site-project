@@ -58,7 +58,10 @@ export default class SingleProduct extends Component {
 
                 {/* TO DO: CHANGE THIS HEADER */}
                 {/* TO DO: CHANGE DELETE FUNCTION SO IT ACTUALLY REFRESHES THE PAGE */}
-                <h2>Delete</h2>
+                {
+                    this.props.inAdminView ?
+                    <div>
+                    <h2>Delete</h2>
                 <button onClick={this.deleteProduct}>Delete {this.props.name}</button>
 
                 <h2>Edit form</h2>
@@ -120,7 +123,8 @@ export default class SingleProduct extends Component {
                                 value={this.state.product.image} />
 
                             <input type="submit" value="Edit Product" />
-                        </form> 
+                        </form> </div>: null
+                }
             </div>
         )
     }

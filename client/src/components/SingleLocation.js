@@ -78,7 +78,8 @@ export default class SingleLocation extends Component {
                             description={product.description}
                             size={product.size}
                             colors={product.colors}
-                            locationId={product.locationId} />
+                            locationId={product.locationId}
+                            inAdminView={this.state.inAdminView} />
                     </div>
                 )
             }
