@@ -1,66 +1,81 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
+import SingleProduct from './SingleProduct'
 
-export default class SingleProduct extends Component {
+export default class Products extends Component {
+
     state = {
-        product: {}
+        products: [],
+        newProduct: {
+            name: '',
+            price: '',
+            rating: '',
+            description: '',
+            size: '',
+            colors: '',
+            locationId: ''
+        },
+        isNewProductFormDisplayed: false
     }
 
+    /* Step 4
+    * Use componentDidMount to retrieve any data to display
+    *   Here you can make calls to your local express server
+    *   or to an external API
+    *   setState can be run here as well
+    *   -REMINDER remember `setState` it is an async function
+    */
     componentDidMount() {
-        axios.get(`/api/products/${this.props.id}`)
-            .then(res => {
-                this.setState({product: res.data})
+        this.getAllProducts()
+    }
+
+    getAllProducts() {
+        axios.get(`/api/products`)
+            .then((res) => {
+                // console.log(res.data)
+                this.setState({products: res.data})
             })
     }
 
     handleInputChange = (event) => {
-        const product = {...this.state.product}
-        product[event.target.name] = event.target.value
+        const newProduct = {...this.state.newProduct}
+        newProduct[event.target.name] = event.target.value
+        newProduct.locationId = this.props.match.params.locationId
 
-        this.setState({product})
+        this.setState({newProduct})
     }
 
-    handleSubmit = (event) => {
+    handleCreateSubmit = (event) => {
         event.preventDefault()
-        
-        axios.put(`/api/products/${this.props.id}`, this.state.product)
-            .then(res => {
-                this.setState({
-                    product: res.data,
-                    // isEditFormDisplayed: false
-                })
+      
+        axios.post(`/api/products`, this.state.newProduct)
+            .then(() => {
+                this.setState({isNewProductFormDisplayed: false})
+                this.getAllProducts()
             })
     }
 
-    deleteProduct = () => {
-        axios.delete(`/api/products/${this.props.id}`)
-            .then(res => {
-                this.setState({product: res.data})
-            })
+    handleCreateToggleButton = () => {
+        this.setState((state) => {
+            return {isNewProductFormDisplayed: !state.isNewProductFormDisplayed}
+        })
     }
-// TO DO: ADD TERNARY TO SHOW OR HIDE EDIT FORM
+
     render() {
+
         return (
             <div>
-                {/* <Link to={`/products`}>Create Product</Link> */}
-                
-                <div><h1>{this.props.name}</h1></div>
-
-                {/* TO DO: CHANGE THIS HEADER */}
-                {/* TO DO: CHANGE DELETE FUNCTION SO IT ACTUALLY REFRESHES THE PAGE */}
-                <h2>Delete</h2>
-                <button onClick={this.deleteProduct}>Delete {this.props.name}</button>
-
-                <h2>Edit form</h2>
-                <form onSubmit={this.handleSubmit}>
+            
+                <h1>Create Product Form</h1>
+                            <form onSubmit={this.handleCreateSubmit}>
                             <label htmlFor="product-name" >Product Name:</label>
                             <input 
                                 id="product-name" 
                                 name="name" 
                                 type="text" 
                                 onChange={this.handleInputChange} 
-                                value={this.state.product.name} />
+                                value={this.state.newProduct.name} />
 
                             <label htmlFor="product-description" >Product Description:</label>
                             <input 
@@ -68,7 +83,7 @@ export default class SingleProduct extends Component {
                                 name="description" 
                                 type="text" 
                                 onChange={this.handleInputChange} 
-                                value={this.state.product.description}/>
+                                value={this.state.newProduct.description}/>
 
                             <label htmlFor="product-size" >Product Size:</label>
                             <input 
@@ -76,7 +91,7 @@ export default class SingleProduct extends Component {
                                 name="size" 
                                 type="text" 
                                 onChange={this.handleInputChange} 
-                                value={this.state.product.size}/>
+                                value={this.state.newProduct.size}/>
                                 
                             <label htmlFor="product-colors" >Product Colors:</label>
                             <input 
@@ -84,7 +99,7 @@ export default class SingleProduct extends Component {
                                 name="colors" 
                                 type="text" 
                                 onChange={this.handleInputChange} 
-                                value={this.state.product.colors}/>
+                                value={this.state.newProduct.colors}/>
 
                             <label htmlFor="product-price" >Product Price:</label>
                             <input 
@@ -92,7 +107,7 @@ export default class SingleProduct extends Component {
                                 name="price" 
                                 type="text" 
                                 onChange={this.handleInputChange} 
-                                value={this.state.product.price}/>
+                                value={this.state.newProduct.price}/>
 
                             <label htmlFor="product-rating" >Product Rating:</label>
                             <input 
@@ -100,10 +115,15 @@ export default class SingleProduct extends Component {
                                 name="rating" 
                                 type="text" 
                                 onChange={this.handleInputChange} 
-                                value={this.state.product.rating}/>
+                                value={this.state.newProduct.rating}/>
 
-                            <input type="submit" value="Edit Product" />
+                            <input type="submit" value="Create Product" />
                         </form> 
+                        
+                        
+                        
+
+                    {/* // } */}
             </div>
         )
     }

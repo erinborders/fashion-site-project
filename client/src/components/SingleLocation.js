@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Products from './Products'
+import CreateProductForm from './CreateProductForm'
 import { Redirect } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
 
@@ -44,6 +45,7 @@ export default class SingleLocation extends Component {
                     this.props.match
                         ? <div>Fashion Vera
                             <button onClick={this.deleteLocation}>Delete Location</button>
+                            <CreateProductForm match={this.props.match} />
                             {/* TO DO: ORGANIZE THIS */}
                         {this.state.products.map(product => {
             if(product.locationId == this.props.match.params.locationId) {
@@ -67,7 +69,7 @@ export default class SingleLocation extends Component {
                         </div>
                         : null
                 }
-
+                {/* <Products /> */}
                 
             </div>
         )

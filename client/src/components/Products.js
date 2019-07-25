@@ -82,9 +82,9 @@ export default class Products extends Component {
         })
         return (
             <div>
-                {/* { */}
-                        {/* this.state.isNewProductFormDisplayed ? */}
-                        <form onSubmit={this.handleCreateSubmit}>
+                
+                            
+                            {/* <form onSubmit={this.handleCreateSubmit}>
                             <label htmlFor="product-name" >Product Name:</label>
                             <input 
                                 id="product-name" 
@@ -134,11 +134,12 @@ export default class Products extends Component {
                                 value={this.state.newProduct.rating}/>
 
                             <input type="submit" value="Create Product" />
-                        </form> 
-                        {/* // :  */}
+                        </form>   */}
                         <div>
                         {productsList}
                         </div> 
+                        
+                        
 
                     {/* // } */}
             </div>
