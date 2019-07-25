@@ -12,7 +12,8 @@ import Products from './Products'
 
 export default class Home extends Component {
     state = {
-        inAdminView: false
+        inAdminView: false,
+        onHomePage: true
     }
     
     showAdminView = () => {
@@ -28,7 +29,7 @@ export default class Home extends Component {
                 {
                     this.state.inAdminView ?
                     <div>
-                    <AdminView />
+                    <AdminView onHomePage={this.state.onHomePage}/>
                 </div> : null
                 }
                 <div>

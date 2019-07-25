@@ -5,11 +5,14 @@ import Products from './Products'
 import CreateProductForm from './CreateProductForm'
 import { Redirect } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
+import AdminView from './AdminView'
 
 export default class SingleLocation extends Component {
     state = {
         products: [],
-        redirect: false
+        redirect: false,
+        inAdminView: false,
+        onLocationPage: true
     }
 
     componentDidMount() {
@@ -32,6 +35,12 @@ export default class SingleLocation extends Component {
             })
     }
 
+    showAdminView = () => {
+        this.setState((state) => {
+            return {inAdminView: !state.inAdminView}
+        })
+    }
+
     render() {
         if (this.state.redirect) {
             return (<Redirect to={`/`}/>)
@@ -45,7 +54,16 @@ export default class SingleLocation extends Component {
                     this.props.match
                         ? <div>Fashion Vera
                             <button onClick={this.deleteLocation}>Delete Location</button>
-                            <CreateProductForm match={this.props.match} />
+                            <button onClick={this.showAdminView}>Admin View</button>
+                            {/* <CreateProductForm match={this.props.match} /> */}
+                            {
+                                this.state.inAdminView ?
+                                <AdminView 
+                                match={this.props.match}
+                                onLocationPage={this.state.onLocationPage} /> : null
+                            }
+                            
+
                             {/* TO DO: ORGANIZE THIS */}
                         {this.state.products.map(product => {
             if(product.locationId == this.props.match.params.locationId) {
