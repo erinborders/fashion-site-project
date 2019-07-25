@@ -6,13 +6,30 @@ import Walking from './images/walking.gif'
 import SquadMagic from './images/squad magic.gif'
 import PrimpingHair from './images/primping hair.gif'
 import Carousel from 'react-bootstrap/Carousel'
+import AdminView from './AdminView'
 import Products from './Products'
 
 export default class Home extends Component {
+    state = {
+        inAdminView: false
+    }
     
+    showAdminView = () => {
+        this.setState((state) => {
+            return {inAdminView: !state.inAdminView}
+        })
+    }
+
     render() {
         return (
             <div>
+                <button onClick={this.showAdminView}>Admin View</button>
+                {
+                    this.state.inAdminView ?
+                    <div>
+                    <AdminView />
+                </div> : null
+                }
                 <div>
                     <Carousel interval="2000" fade="true" indicators="false">
                         <Carousel.Item >

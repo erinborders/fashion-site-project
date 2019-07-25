@@ -67,6 +67,7 @@ export default class Locations extends Component {
             })
     }
 
+    // TO DO: CHANGE THIS TO TOGGLE CREATE LOCATION FORM
     handleLocationButtonToggle = () => {
         this.setState((state) => {
             return {isLocationLinkClicked: !state.isLocationLinkClicked}
@@ -81,31 +82,9 @@ export default class Locations extends Component {
     */
     render() {
 
-        let locationsList = this.state.locations.map((location, index) => {
-            return(
-                <div>
-                    <SingleLocation
-                        key={index}
-                        neighborhood={location.neighborhood}
-                        address={location.address}
-                        id={location._id}
-                         />
-                </div>
-            )
-        })
         return (
             <div>
-                {/* Accessing the value of message from the state object */}
-                {
-                    this.state.isLocationLinkClicked ?
-                    <div>
-                        {locationsList}
-                        {/* <button>Create Location</button> */}
-                    </div> : <button onClick={this.handleLocationButtonToggle}>Locations</button>
-                        
-                }
-                {/* TO DO: ORGANIZE THIS CODE */}
-                 {/* <form onSubmit={this.handleCreateSubmit}>
+                 <form onSubmit={this.handleCreateSubmit}>
             <div>
               <label htmlFor="neighborhood">Neighborhood:</label>
               <input id="neighborhood" type="text" name="neighborhood" onChange={this.handleInputChange} value={this.state.newLocation.neighborhood} />
@@ -115,7 +94,7 @@ export default class Locations extends Component {
               <input id="address" type="text" name="address" onChange={this.handleInputChange} value={this.state.newLocation.address}/>
             </div>
             <button>Create Location</button>
-          </form> */}
+          </form>
             </div>
         )
     }
