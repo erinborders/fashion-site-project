@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  background-color: black;
-  height: 100%;
+  background-color: aliceblue;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -59,7 +59,26 @@
   position: absolute;
   top: 0;
   width: 100%;
+  height: 100%;
   z-index: 0;
+}
+
+.about-component {
+  height: 100vh;
+  font-family: 'Merriweather Sans', sans-serif;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  width: 600px;
+}
+
+.about-paragraph {
+  border: 2px solid white;
+  margin-top: 30px;
 }
 
 .footer-component {

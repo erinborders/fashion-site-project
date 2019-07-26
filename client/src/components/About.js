@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 export default class About extends Component {
     render() {
         return (
-            <div>
+            <div className="about-component" >
+                <div className="about-content">
                 <h1>About Us</h1>
+                <div className="about-paragraph">
                 <p>We must never confuse elegance with snobbery. 
                     Beauty is perfect in its imperfections, so you just 
                     have to go with the imperfections. I believe in 
@@ -16,6 +18,9 @@ export default class About extends Component {
                     creatively, from my gut. What you wear is how you 
                     present yourself to the world, especially today when 
                     human contacts go so fast. Fashion is instant language.</p>
+                </div>
+                </div>
+                
             </div>
         )
     }
