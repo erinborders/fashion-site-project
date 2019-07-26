@@ -1,6 +1,6 @@
 .App {
+  background-color: rgba(240, 248, 255, 0.5);
   text-align: center;
-  background-color: aliceblue;
   min-height: 100vh;
 }
 
@@ -35,11 +35,6 @@
   margin-top: 5px;
 }
 
-/* .admin-component {
-  display: flex;
-  z-index: 1;
-} */
-
 .fashion-vera-title-home {
   position: absolute;
   z-index: 1;
@@ -63,6 +58,15 @@
   z-index: 0;
 }
 
+.about-background-image {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.3;
+}
+
 .about-component {
   height: 100vh;
   font-family: 'Merriweather Sans', sans-serif;
@@ -78,6 +82,9 @@
 
 .about-paragraph {
   border: 2px solid white;
+  border-radius: 3px;
+  padding: 10px;
+  text-align: justify;
   margin-top: 30px;
 }
 

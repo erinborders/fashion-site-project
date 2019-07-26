@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import city from './images/cityBuildings.jpg'
 
 export default class About extends Component {
     render() {
         return (
             <div className="about-component" >
+                <img className="about-background-image" src={city} alt="Picture of an apartment building"/>
                 <div className="about-content">
                 <h1>About Us</h1>
                 <div className="about-paragraph">
