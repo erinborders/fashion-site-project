@@ -58,7 +58,13 @@
   z-index: 0;
 }
 
-.about-background-image {
+.about-header, .contact-header {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.about-background-image, .contact-background-image {
   height: 100vh;
   width: 100vw;
   object-fit: cover;
@@ -80,12 +86,33 @@
   width: 600px;
 }
 
-.about-paragraph {
+.about-paragraph, .contact-paragraph {
   border: 2px solid white;
   border-radius: 3px;
   padding: 10px;
   text-align: justify;
   margin-top: 30px;
+}
+
+.contact-component {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-content {
+  width: 600px;
+}
+
+.contact-message-input, .contact-email-input, .contact-name-input, .contact-form-submit {
+  margin: 10px;
+}
+
+.contact-footer {
+  margin-top: 10px;
+  padding: 5px;
+  border-top: 2px solid lightgray;
 }
 
 .footer-component {

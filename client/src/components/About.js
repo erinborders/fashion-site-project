@@ -7,7 +7,7 @@ export default class About extends Component {
             <div className="about-component" >
                 <img className="about-background-image" src={city} alt="Picture of an apartment building"/>
                 <div className="about-content">
-                <h1>About Us</h1>
+                <h1 className="about-header">About Us</h1>
                 <div className="about-paragraph">
                 <p>We must never confuse elegance with snobbery. 
                     Beauty is perfect in its imperfections, so you just 
