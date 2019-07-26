@@ -22,10 +22,53 @@
 .navbar-wrapper {
   display: flex;
   flex-direction: row-reverse;
+  position: absolute;
+  right: 0;
   z-index: 1;
 }
 
 .navbar-button {
   display: flex;
+  z-index: 1;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 5px;
 }
 
+/* .admin-component {
+  display: flex;
+  z-index: 1;
+} */
+
+.fashion-vera-title-home {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 42%;
+  color: white;
+}
+
+.fashion-vera-title-home > h1 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 50px;
+}
+
+.home-carousel {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.footer-component {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+}
+
+.footer-link {
+  color: white;
+  margin: 15px;
+}

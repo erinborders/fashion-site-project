@@ -26,6 +26,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
+                {/* TO DO: FIGURE OUT WHY THE ADMIN BUTTON WON'T MOVE FORWARD */}
                 <Button className="navbar-button" variant="outline-info" onClick={this.showAdminView}>Admin View</Button>
                 {
                     this.state.inAdminView ?
@@ -34,7 +35,7 @@ export default class Home extends Component {
                 </div> : null
                 }
                 <div>
-                    <Carousel interval="2000" fade="true" indicators="false" controls="false">
+                    <Carousel className="home-carousel" interval="2000" fade="true" indicators={false} controls={false}>
                         <Carousel.Item >
                             <img 
                             src={Posing} 
@@ -76,7 +77,7 @@ export default class Home extends Component {
                             />
                         </Carousel.Item>
                     </Carousel>
-                    <span><h1>Fashion Vera</h1></span>
+                    <span className="fashion-vera-title-home"><h1>Fashion Vera</h1></span>
                 </div>
                 {/* <div>
                     <img
