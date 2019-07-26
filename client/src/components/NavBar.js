@@ -29,7 +29,7 @@ export default class NavBar extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{display: 'flex'}} >
                 {/* <a href="#">Search</a> */}
                 <Locations />
                 {/* <Link to="">Account</Link> */}
@@ -40,7 +40,7 @@ export default class NavBar extends Component {
                         mockLogIn={this.props.mockLogIn}
                         setStateOfUsers={this.props.setStateOfUsers}
                         handleSubmit={this.handleSubmit}/>
-                    : <Button onClick={this.handleLogInToggle}>Log In</Button> 
+                    : <Button className="navbar-button" variant="outline-light" onClick={this.handleLogInToggle}>Log In</Button>
                     
                 }
                 {/* <LogIn isLoggedIn={this.state.isLoggedIn} 

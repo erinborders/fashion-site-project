@@ -8,6 +8,7 @@ import PrimpingHair from './images/primping hair.gif'
 import TealOutfits from './images/teal outfits.jpg'
 import Carousel from 'react-bootstrap/Carousel'
 import AdminView from './AdminView'
+import { Button } from 'react-bootstrap'
 import Products from './Products'
 
 export default class Home extends Component {
@@ -25,7 +26,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.showAdminView}>Admin View</button>
+                <Button className="navbar-button" variant="outline-info" onClick={this.showAdminView}>Admin View</Button>
                 {
                     this.state.inAdminView ?
                     <div>
@@ -37,40 +38,40 @@ export default class Home extends Component {
                         <Carousel.Item >
                             <img 
                             src={Posing} 
-                            height="500px" 
-                            width="950px"
+                            // height="100%" 
+                            width="100%"
                             // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
                             src={BlackGirlsDancing} 
-                            height="500px" 
-                            width="950px"
+                            // height="500px" 
+                            width="100%"
                             // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
                             src={Walking} 
-                            height="500px" 
-                            width="950px"
+                            // height="500px" 
+                            width="100%"
                             // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
                             src={SquadMagic} 
-                            height="500px" 
-                            width="950px"
+                            // height="500px" 
+                            width="100%"
                             // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
                             src={PrimpingHair} 
-                            height="500px" 
-                            width="950px"
+                            // height="500px" 
+                            width="100%"
                             // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>

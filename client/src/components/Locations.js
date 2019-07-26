@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import SingleLocation from './SingleLocation';
+import { Button } from 'react-bootstrap'
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -100,8 +101,8 @@ export default class Locations extends Component {
                     this.state.isLocationLinkClicked ?
                     <div>
                         {locationsList}
-                        {/* <button>Create Location</button> */}
-                    </div> : <button onClick={this.handleLocationButtonToggle}>Locations</button>
+                    {/* TO DO: CHANGE TO OUTLINE LIGHT ONCE THE CAROUSEL TAKES UP THE WHOLE HOME PAGE */}
+                    </div> : <Button className="navbar-button" variant="outline-light" onClick={this.handleLocationButtonToggle}>Locations</Button>
                         
                 }
                 
