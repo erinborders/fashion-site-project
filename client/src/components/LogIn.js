@@ -62,10 +62,11 @@ export default class LogIn extends Component {
 
     return (
       <div>
+        {/* TO DO: CHANGE THIS SO THE CREATE ACCOUNT FORM IS ONLY SHOWN WHEN THE LOG IN BUTTON'S CLICKED */}
         {
             this.state.isLoggedIn ?
             // <Link to="/user-profile">Account</Link>
-            null : 
+            <button>Log In</button> : 
             <form onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="userName">User Name</label>

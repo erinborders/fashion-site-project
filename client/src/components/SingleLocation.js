@@ -52,7 +52,9 @@ export default class SingleLocation extends Component {
                 
                 {
                     this.props.match
-                        ? <div>Fashion Vera
+                        ? <div>
+                            <Link to="/">Home</Link>
+                            <h1>Fashion Vera</h1>
                             <button onClick={this.deleteLocation}>Delete Location</button>
                             <button onClick={this.showAdminView}>Admin View</button>
                             {/* <CreateProductForm match={this.props.match} /> */}

@@ -40,15 +40,18 @@ export default class SingleProduct extends Component {
                 this.setState({product: res.data})
             })
     }
-// TO DO: ADD TERNARY TO SHOW OR HIDE EDIT FORM
+
     render() {
         return (
             <div>
-                {/* TO DO: ADD TERNARY SO THAT IMAGE DOESN'T SHOW IF IT'S NOT ENTERED */}
+                
                 {/* TO DO: PUT IMAGES INTO TEST DATA FOR HEROKU SO I CAN HAVE A CAROUSEL */}
-                <div>
+                {
+                    this.state.product.image ?
+                    <div>
                     <img src={this.state.product.image} alt={`A picture of ${this.props.name}`} />
-                </div>
+                </div> : null
+                }
                 
                 <div>
                     <h1>{this.props.name}</h1>

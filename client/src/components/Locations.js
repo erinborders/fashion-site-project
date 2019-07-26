@@ -104,18 +104,7 @@ export default class Locations extends Component {
                     </div> : <button onClick={this.handleLocationButtonToggle}>Locations</button>
                         
                 }
-                {/* TO DO: ORGANIZE THIS CODE */}
-                 {/* <form onSubmit={this.handleCreateSubmit}>
-            <div>
-              <label htmlFor="neighborhood">Neighborhood:</label>
-              <input id="neighborhood" type="text" name="neighborhood" onChange={this.handleInputChange} value={this.state.newLocation.neighborhood} />
-            </div>
-            <div>
-              <label htmlFor="address">Address:</label>
-              <input id="address" type="text" name="address" onChange={this.handleInputChange} value={this.state.newLocation.address}/>
-            </div>
-            <button>Create Location</button>
-          </form> */}
+                
             </div>
         )
     }
