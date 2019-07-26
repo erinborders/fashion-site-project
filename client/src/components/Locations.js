@@ -95,7 +95,7 @@ export default class Locations extends Component {
             )
         })
         return (
-            <div>
+            <div style={{display: 'flex'}}>
                 {/* Accessing the value of message from the state object */}
                 {
                     this.state.isLocationLinkClicked ?

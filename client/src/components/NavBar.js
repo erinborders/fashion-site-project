@@ -29,7 +29,7 @@ export default class NavBar extends Component {
 
     render() {
         return (
-            <div style={{display: 'flex'}} >
+            <div className="navbar-wrapper" style={{display: 'flex'}} >
                 {/* <a href="#">Search</a> */}
                 <Locations />
                 {/* <Link to="">Account</Link> */}

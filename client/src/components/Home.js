@@ -34,7 +34,7 @@ export default class Home extends Component {
                 </div> : null
                 }
                 <div>
-                    <Carousel interval="2000" fade="true" indicators="false">
+                    <Carousel interval="2000" fade="true" indicators="false" controls="false">
                         <Carousel.Item >
                             <img 
                             src={Posing} 
