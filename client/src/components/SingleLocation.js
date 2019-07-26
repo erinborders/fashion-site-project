@@ -55,7 +55,12 @@ export default class SingleLocation extends Component {
                         ? <div>
                             <Link to="/">Home</Link>
                             <h1>Fashion Vera</h1>
-                            <button onClick={this.deleteLocation}>Delete Location</button>
+                            {
+                                this.state.inAdminView ?
+                                <button onClick={this.deleteLocation}>Delete Location</button> 
+                                : null
+                            }
+                            
                             <button onClick={this.showAdminView}>Admin View</button>
                             {/* <CreateProductForm match={this.props.match} /> */}
                             {

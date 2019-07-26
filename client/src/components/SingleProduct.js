@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Card } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import axios from 'axios';
 
 export default class SingleProduct extends Component {
     state = {
-        product: {}
+        product: {},
+        hasInfoButtonBeenClicked: false
     }
 
     componentDidMount() {
@@ -41,20 +44,41 @@ export default class SingleProduct extends Component {
             })
     }
 
+    handleInfoToggle = () => {
+        this.setState((state) => {
+            return {hasInfoButtonBeenClicked: !state.hasInfoButtonBeenClicked}
+        })
+    }
+
     render() {
         return (
             <div>
                 
                 {/* TO DO: PUT IMAGES INTO TEST DATA FOR HEROKU SO I CAN HAVE A CAROUSEL */}
-                {
-                    this.state.product.image ?
-                    <div>
-                    <img src={this.state.product.image} alt={`A picture of ${this.props.name}`} />
-                </div> : null
-                }
                 
+                <Card>
+                    {/* if there's an image, show it */}
+                    {
+                        this.state.product.image ?
+                        <div>
+                        <Card.Img variant="top" src={this.state.product.image} alt={`A picture of ${this.props.name}`} />
+                        </div> : null
+                    }
+                    <Card.Body>
+                        <Card.Title>{this.props.name}</Card.Title>
+                        {
+                            this.state.hasInfoButtonBeenClicked ?
+                            <Card.Text>
+                                {this.props.description}
+                            </Card.Text> : null
+                        }
+                        <Card.Text>${this.props.price}</Card.Text>
+                        <Button variant="outline-info" >Buy</Button>
+                        <Button variant="outline-info" onClick={this.handleInfoToggle}>Details</Button>
+                    </Card.Body>
+                </Card>
                 <div>
-                    <h1>{this.props.name}</h1>
+                    
                     {/* TO DO: FIGURE OUT HOW TO LINK TO AN INDIVIDUAL PRODUCT PAGE */}
                     {/* <Link to={`/products/${this.state.product._id}`}>{this.props.name}</Link> */}
                 </div>

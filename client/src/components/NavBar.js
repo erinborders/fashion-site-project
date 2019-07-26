@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Locations from './Locations'
 import LogIn from './LogIn'
+import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default class NavBar extends Component {
@@ -9,8 +10,8 @@ export default class NavBar extends Component {
         newUser: {
             userName: '',
             password: ''
-          }
-        // isLoggedIn: this.props.location.state.isLoggedIn
+          },
+        isLoggedIn: false
     }
     
       handleSubmit = (e) => {
@@ -18,6 +19,12 @@ export default class NavBar extends Component {
         this.props.mockLogIn(this.state.newUser)
         this.setState({isLoggedIn: true})
         this.setState({redirect: true})
+      }
+
+      handleLogInToggle = () => {
+        this.setState((state) => {
+          return {isLoggedIn: !state.isLoggedIn}
+      })
       }
 
     render() {
@@ -28,12 +35,13 @@ export default class NavBar extends Component {
                 {/* <Link to="">Account</Link> */}
                 {
                     this.state.isLoggedIn ?
-                    <Link to={`/users/${this.props.newUser._id}`}>Account</Link> :
                     <LogIn 
                         isLoggedIn={this.state.isLoggedIn} 
                         mockLogIn={this.props.mockLogIn}
                         setStateOfUsers={this.props.setStateOfUsers}
                         handleSubmit={this.handleSubmit}/>
+                    : <Button onClick={this.handleLogInToggle}>Log In</Button> 
+                    
                 }
                 {/* <LogIn isLoggedIn={this.state.isLoggedIn} 
                         mockLogIn={this.props.mockLogIn}
