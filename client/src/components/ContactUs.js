@@ -1,9 +1,28 @@
 import React, { Component } from 'react'
 import city from './images/cityBuildings.jpg'
-import { Form, Button, Col, FormControl } from 'react-bootstrap'
+import { Form, Button, Col } from 'react-bootstrap'
+import Modal from 'react-bootstrap/Modal'
+import ContactUsModal from './ContactUsModal'
 
 export default class ContactUs extends Component {
+    state = {
+        showModal: false
+    }
+
+    getInitialState() {
+        return { showModal: false };
+      }
+    
+      close =() => {
+        this.setState({ showModal: false });
+      }
+    
+      open = () => {
+        this.setState({ showModal: true });
+      }
+
     render() {
+  
         return (
             <div className="contact-component">
                 <img className="contact-background-image" src={city} alt="Picture of an apartment building" />
@@ -41,13 +60,26 @@ export default class ContactUs extends Component {
                                 <Col>
                                     <Form.Control className="contact-name-input" placeholder="Full Name" />
                                 </Col>
-                                <Button className="contact-form-submit" variant="info" >Submit</Button>
+                                <Button 
+                                    className="contact-form-submit" 
+                                    variant="info"
+                                    onClick={this.open} >Submit</Button>
                             </Form.Row>
                         </Form>
                         <div className="contact-footer">
                         <p>123 Totally Real St.</p>
                         <p>Fashion Vera</p>
                         </div>
+                     
+                            <Modal show={this.state.showModal} onHide={this.close}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Thanks for the message!</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <p>I love women's fashion, but women don't need me as much as men do. It's the men who have nothing to wear.</p>
+                            </Modal.Body>
+                            
+                            </Modal>
                         
                     </div>
             </div>

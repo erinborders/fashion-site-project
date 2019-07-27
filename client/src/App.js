@@ -59,7 +59,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/contact" component={ContactUs} />
+            <Route path="/contact" render={(props) => <ContactUs {...props} />} />
+            {/* <Route path="/contact" component={ContactUs} /> */}
             <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props} />} />
             {/* <Route path="/products/:productId" component={SingleProduct} /> */}
             <Route path="/products" render={(props) => <Products {...props} />} />

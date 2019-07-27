@@ -115,6 +115,11 @@
   border-top: 2px solid lightgray;
 }
 
+.contact-modal {
+  position: absolute;
+  z-index: 2;
+}
+
 .footer-component {
   position: absolute;
   bottom: 0;
