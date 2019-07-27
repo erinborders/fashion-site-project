@@ -94,6 +94,11 @@
   margin-top: 30px;
 }
 
+.nav-breadcrumbs {
+  position: absolute;
+  z-index: 1;
+}
+
 .contact-component {
   display: flex;
   height: 100vh;
@@ -121,9 +126,10 @@
 }
 
 .footer-component {
+  width: 100%;
+  background: gray;
   position: absolute;
   bottom: 0;
-  left: 40%;
 }
 
 .footer-link {

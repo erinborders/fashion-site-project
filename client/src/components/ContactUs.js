@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import city from './images/cityBuildings.jpg'
-import { Form, Button, Col } from 'react-bootstrap'
+import { Form, Button, Col, Breadcrumb } from 'react-bootstrap'
 import Modal from 'react-bootstrap/Modal'
-import ContactUsModal from './ContactUsModal'
+
 
 export default class ContactUs extends Component {
     state = {
@@ -24,7 +24,14 @@ export default class ContactUs extends Component {
     render() {
   
         return (
+            <React.Fragment>
+                <Breadcrumb className="nav-breadcrumbs">
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>About</Breadcrumb.Item>
+                </Breadcrumb>
+           
             <div className="contact-component">
+                
                 <img className="contact-background-image" src={city} alt="Picture of an apartment building" />
                 <div className="contact-content">
                     <h1 className="contact-header">Contact Us</h1>
@@ -45,13 +52,7 @@ export default class ContactUs extends Component {
                         end result, it's about what you learn along the 
                         way. Let us know what we can learn!</p>
                     </div>
-              
-                        {/* TO DO: WHEN YOU CLICK THE SUBMIT BUTTON, A MESSAGE APPEARS THAT SAYS THANKS FOR REACHING OUT */}
                         <Form>
-                            {/* <input placeholder="Message" />
-                            <input placeholder="Email Address"/>
-                            <input placeholder="Full Name" />
-                            <input type="submit" value="Send" /> */}
                             <Form.Row>
                                 <Form.Control className="contact-message-input" placeholder="Message" as="textarea" rows="3" />
                                 <Col>
@@ -83,6 +84,7 @@ export default class ContactUs extends Component {
                         
                     </div>
             </div>
+            </React.Fragment>
         )
     }
 }
