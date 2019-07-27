@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+import { Breadcrumb } from 'react-bootstrap'
 import city from './images/cityBuildings.jpg'
 
 export default class About extends Component {
     render() {
         return (
+            <React.Fragment>
+                <Breadcrumb className="nav-breadcrumbs">
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>About</Breadcrumb.Item>
+                </Breadcrumb>
             <div className="about-component" >
                 <img className="about-background-image" src={city} alt="Picture of an apartment building"/>
                 <div className="about-content">
@@ -24,6 +30,7 @@ export default class About extends Component {
                 </div>
                 
             </div>
+            </React.Fragment>
         )
     }
 }

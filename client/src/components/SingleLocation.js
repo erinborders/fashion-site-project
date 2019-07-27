@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Products from './Products'
-import CreateProductForm from './CreateProductForm'
+import { Breadcrumb } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
 import AdminView from './AdminView'
@@ -53,7 +53,11 @@ export default class SingleLocation extends Component {
                 {
                     this.props.match
                         ? <div>
-                            <Link to="/">Home</Link>
+                            
+                            <Breadcrumb className="nav-breadcrumbs">
+                            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                            <Breadcrumb.Item active>Shopping</Breadcrumb.Item>
+                            </Breadcrumb>
                             <h1>Fashion Vera</h1>
                             {
                                 this.state.inAdminView ?

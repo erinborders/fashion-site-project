@@ -27,7 +27,7 @@ export default class ContactUs extends Component {
             <React.Fragment>
                 <Breadcrumb className="nav-breadcrumbs">
                 <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item active>About</Breadcrumb.Item>
+                <Breadcrumb.Item active>Contact Us</Breadcrumb.Item>
                 </Breadcrumb>
            
             <div className="contact-component">
