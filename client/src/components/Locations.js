@@ -97,14 +97,15 @@ export default class Locations extends Component {
         return (
             <div style={{display: 'flex'}}>
                 {/* Accessing the value of message from the state object */}
-                {
-                    this.state.isLocationLinkClicked ?
+                {/* {
+                    this.state.isLocationLinkClicked ? */}
                     <div>
                         {locationsList}
-                    {/* TO DO: CHANGE TO OUTLINE LIGHT ONCE THE CAROUSEL TAKES UP THE WHOLE HOME PAGE */}
-                    </div> : <Button className="navbar-button" variant="outline-light" onClick={this.handleLocationButtonToggle}>Locations</Button>
+                    {/* TO DO: CHANGE DELETE COMMENTS HERE */}
+                    </div> 
+                    {/* // <Button className="navbar-button" variant="outline-light" onClick={this.handleLocationButtonToggle}>Locations</Button> */}
                         
-                }
+                {/* } */}
                 
             </div>
         )

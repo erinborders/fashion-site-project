@@ -27,6 +27,11 @@
   z-index: 1;
 }
 
+.admin-button {
+  position: absolute;
+  z-index: 1;
+}
+
 .navbar-button {
   display: flex;
   z-index: 1;

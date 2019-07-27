@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Locations from './Locations'
 import LogIn from './LogIn'
-import { Button } from 'react-bootstrap'
+import { Button, Navbar, NavDropdown, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default class NavBar extends Component {
@@ -30,23 +30,36 @@ export default class NavBar extends Component {
     render() {
         return (
             <div className="navbar-wrapper" style={{display: 'flex'}} >
+              <Navbar>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse>
+                  <Nav className="mr-auto">
+                    <Nav.Link>
+                      {/* TO DO: DELETE IS LOGGED IN */}
+                    {/* {
+                      this.state.isLoggedIn ? */}
+                      <LogIn 
+                          isLoggedIn={this.state.isLoggedIn} 
+                          mockLogIn={this.props.mockLogIn}
+                          setStateOfUsers={this.props.setStateOfUsers}
+                          handleSubmit={this.handleSubmit}/>
+                      {/* // : <Button className="navbar-button" variant="outline-light" onClick={this.handleLogInToggle}>Log In</Button> */}
+                      
+                    {/* // } */}
+                    </Nav.Link>
+                    <NavDropdown title="Locations">
+                      <NavDropdown.Item>
+                        <Locations />
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
                 {/* <a href="#">Search</a> */}
-                <Locations />
+                
                 {/* <Link to="">Account</Link> */}
-                {
-                    this.state.isLoggedIn ?
-                    <LogIn 
-                        isLoggedIn={this.state.isLoggedIn} 
-                        mockLogIn={this.props.mockLogIn}
-                        setStateOfUsers={this.props.setStateOfUsers}
-                        handleSubmit={this.handleSubmit}/>
-                    : <Button className="navbar-button" variant="outline-light" onClick={this.handleLogInToggle}>Log In</Button>
-                    
-                }
-                {/* <LogIn isLoggedIn={this.state.isLoggedIn} 
-                        mockLogIn={this.props.mockLogIn}
-                        handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit}/> */}
+                
+                
             </div>
         )
     }

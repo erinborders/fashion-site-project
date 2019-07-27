@@ -41,6 +41,7 @@ class App extends Component {
   }
 
   setStateOfUsers = (users) => {
+    console.log(users)
     this.setState({ users })
     this.getAllUsers()
   }
@@ -64,7 +65,7 @@ class App extends Component {
             <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props} />} />
             {/* <Route path="/products/:productId" component={SingleProduct} /> */}
             <Route path="/products" render={(props) => <Products {...props} />} />
-            <Route path="/users/:userId" render={(props) => <UserProfile {...props} setStateOfUsers={this.setStateOfUsers} users={this.state.users}/>} />
+            <Route path="/users/:userId" render={(props) => <UserProfile {...props} setStateOfUsers={this.setStateOfUsers} />} />
             {/* <Route path="/users/:userId" component={UserProfile} /> */}
             <Route path="/users" render={(props) => <Users {...props} users={this.state.users} />} />
           </Switch>

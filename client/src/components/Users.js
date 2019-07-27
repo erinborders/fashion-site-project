@@ -11,6 +11,7 @@ export default class Users extends Component {
             return(
                 <div>
                     <UserProfile 
+                        // setStateOfUsers={this.props.setStateOfUsers}
                         key={user._id}
                         userName={user.userName}
                         password={user.password}

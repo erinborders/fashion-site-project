@@ -27,7 +27,10 @@ export default class Home extends Component {
         return (
             <div>
                 {/* TO DO: FIGURE OUT WHY THE ADMIN BUTTON WON'T MOVE FORWARD */}
-                <Button className="navbar-button" variant="outline-info" onClick={this.showAdminView}>Admin View</Button>
+                <div className="admin-button">
+                <Button className="navbar-button" variant="outline-light" onClick={this.showAdminView}>Admin View</Button>
+                </div>
+                
                 {
                     this.state.inAdminView ?
                     <div>
