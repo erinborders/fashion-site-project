@@ -9,7 +9,7 @@ import TealOutfits from './images/teal outfits.jpg'
 import Carousel from 'react-bootstrap/Carousel'
 import AdminView from './AdminView'
 import { Button } from 'react-bootstrap'
-import Products from './Products'
+import Footer from './Footer'
 
 export default class Home extends Component {
     state = {
@@ -92,6 +92,7 @@ export default class Home extends Component {
                 </div>
                 <h1>Products</h1>
                 <Products /> */}
+                <Footer />
             </div>
         )
     }

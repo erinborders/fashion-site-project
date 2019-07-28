@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Form, Button } from 'react-bootstrap'
 import SingleProduct from './SingleProduct'
 
 export default class Products extends Component {
@@ -68,7 +68,59 @@ export default class Products extends Component {
             <div>
             
                 <h1>Create Product Form</h1>
-                            <form onSubmit={this.handleCreateSubmit}>
+                    <Form>
+                        <Form.Group controlId="product-name" >
+                            <Form.Label>Product Name</Form.Label>
+                            <Form.Control size="sm" type="text" name="name" onChange={this.handleInputChange} value={this.state.newProduct.name} />
+                        </Form.Group>
+
+                        <Form.Group controlId="product-description">
+                            <Form.Label>Product Description</Form.Label>
+                            <Form.Control size="sm" type="text" name="description" onChange={this.handleInputChange} value={this.state.newProduct.description} />
+                        </Form.Group>
+
+                        <Form.Group controlId="product-size">
+                            <Form.Label>Product Size</Form.Label>
+                            <Form.Control size="sm" as="select" name="size" onChange={this.handleInputChange} value={this.state.newProduct.size} >
+                                <option>XS</option>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                            </Form.Control>
+                        </Form.Group>
+
+                        <Form.Group controlId="product-colors">
+                            <Form.Label>Product Colors</Form.Label>
+                            <Form.Check name="colors" type="checkbox" label="black" onChange={this.handleInputChange} value={this.state.newProduct.colors} />
+                        </Form.Group>
+
+                        <Form.Group controlId="product-price">
+                            <Form.Label>Product Price</Form.Label>
+                            <Form.Control size="sm" type="text" name="price" onChange={this.handleInputChange} value={this.state.newProduct.price} />
+                        </Form.Group>
+
+                        <Form.Group controlId="product-rating">
+                            <Form.Label>Product Rating</Form.Label>
+                            <Form.Control size="sm" as="select" name="rating" onChange={this.handleInputChange} value={this.state.newProduct.rating} >
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </Form.Control>
+                        </Form.Group>
+
+                        <Form.Group controlId="product-image">
+                            <Form.Label>Product Image</Form.Label>
+                            <Form.Control size="sm" type="text" name="image" onChange={this.handleInputChange} value={this.state.newProduct.image} />
+                        </Form.Group>
+
+                        <Button variant="info" type="submit" onClick={this.handleCreateSubmit} >Create Product</Button>
+                    </Form>
+
+                        {/* TO DO: TEST CREATE FORM THEN DELETE THIS */}
+                            {/* <form onSubmit={this.handleCreateSubmit}>
                             <label htmlFor="product-name" >Product Name:</label>
                             <input 
                                 id="product-name" 
@@ -126,7 +178,7 @@ export default class Products extends Component {
                                 value={this.state.newProduct.image} />
 
                             <input type="submit" value="Create Product" />
-                        </form> 
+                        </form>  */}
                         
                         
                         

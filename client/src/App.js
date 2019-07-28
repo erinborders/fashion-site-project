@@ -69,7 +69,7 @@ class App extends Component {
             {/* <Route path="/users/:userId" component={UserProfile} /> */}
             <Route path="/users" render={(props) => <Users {...props} users={this.state.users} />} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </div>
     );

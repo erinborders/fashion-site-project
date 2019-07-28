@@ -77,7 +77,7 @@ export default class LogIn extends Component {
 
     return (
       <div>
-        <Button variant="light" onClick={this.open}>Log In</Button>
+        <Button size="sm" variant="light" onClick={this.open}>Log In</Button>
 
         <Modal show={this.state.showLogInModal} onHide={this.close}>
           <Modal.Header closeButton>

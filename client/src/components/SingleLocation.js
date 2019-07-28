@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import Products from './Products'
+import city from './images/cityBuildings.jpg'
 import { Breadcrumb } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
@@ -52,13 +52,16 @@ export default class SingleLocation extends Component {
                 
                 {
                     this.props.match
-                        ? <div>
+                        ? <React.Fragment>
                             
                             <Breadcrumb className="nav-breadcrumbs">
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
                             <Breadcrumb.Item active>Shopping</Breadcrumb.Item>
                             </Breadcrumb>
-                            <h1>Fashion Vera</h1>
+                            <div className="single-location-component">
+                            <div className="single-location-content">
+                                <img className="single-location-background-image" src={city} alt="picture of apartment building" />
+                            <h1 className="single-location-header">Fashion Vera</h1>
                             {
                                 this.state.inAdminView ?
                                 <button onClick={this.deleteLocation}>Delete Location</button> 
@@ -66,7 +69,8 @@ export default class SingleLocation extends Component {
                             }
                             
                             <button onClick={this.showAdminView}>Admin View</button>
-                            {/* <CreateProductForm match={this.props.match} /> */}
+                            </div>
+                            <div>
                             {
                                 this.state.inAdminView ?
                                 <AdminView 
@@ -74,32 +78,35 @@ export default class SingleLocation extends Component {
                                 onLocationPage={this.state.onLocationPage} /> : null
                             }
                             
-
-                            {/* TO DO: ORGANIZE THIS */}
-                        {this.state.products.map(product => {
-            if(product.locationId == this.props.match.params.locationId) {
-                return(
-                    <div>
-                        <SingleProduct
-                            key={product._id}
-                            id={product._id}
-                            name={product.name}
-                            price={product.price}
-                            rating={product.rating}
-                            description={product.description}
-                            size={product.size}
-                            colors={product.colors}
-                            locationId={product.locationId}
-                            inAdminView={this.state.inAdminView} />
-                    </div>
-                )
-            }
-            
-        })}
                         </div>
+                            {/* TO DO: ORGANIZE THIS */}
+                            
+                        {this.state.products.map(product => {
+                            if(product.locationId == this.props.match.params.locationId) {
+                                return(
+                                    <div>
+                                        <SingleProduct
+                                            key={product._id}
+                                            id={product._id}
+                                            name={product.name}
+                                            price={product.price}
+                                            rating={product.rating}
+                                            description={product.description}
+                                            size={product.size}
+                                            colors={product.colors}
+                                            locationId={product.locationId}
+                                            inAdminView={this.state.inAdminView} />
+                                    </div>
+                                )
+                            }
+                            
+                        })}
+                        {/* </div> */}
+                        </div>
+                    </React.Fragment>
                         : null
                 }
-                {/* <Products /> */}
+                
                 
             </div>
         )

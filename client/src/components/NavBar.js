@@ -30,7 +30,7 @@ export default class NavBar extends Component {
     render() {
         return (
             <div className="navbar-wrapper" style={{display: 'flex'}} >
-              <Navbar>
+              <Navbar bg="light">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse>
                   <Nav className="mr-auto">
