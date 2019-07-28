@@ -102,19 +102,13 @@ export default class SingleProduct extends Component {
                         <Col>
                         <Form.Group controlId="product-size">
                             <Form.Label>Product Size</Form.Label>
-                            <Form.Control size="sm" as="select" name="size" onChange={this.handleInputChange} value={this.state.product.size} >
-                                <option>XS</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </Form.Control>
+                            <Form.Control size="sm" name="size" onChange={this.handleInputChange} value={this.state.product.size} />
                         </Form.Group>
                         </Col>
                         <Col>
                         <Form.Group controlId="product-colors">
                             <Form.Label>Product Colors</Form.Label>
-                            <Form.Check name="colors" type="checkbox" label="black" onChange={this.handleInputChange} value={this.state.product.colors} />
+                            <Form.Control size="sm" name="colors" onChange={this.handleInputChange} value={this.state.product.colors} />
                         </Form.Group>
                         </Col>
                         </Row>

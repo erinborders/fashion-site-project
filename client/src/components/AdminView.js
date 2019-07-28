@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Alert } from 'react-bootstrap'
 import CreateLocationForm from './CreateLocationForm'
 import CreateProductForm from './CreateProductForm'
 
@@ -15,7 +16,8 @@ export default class AdminView extends Component {
                     </div> : null
                 }
                 <div>
-                    <Link to="/users">Get All Users</Link>
+                    {/* <Link to="/users">Get All Users</Link> */}
+                    <Alert.Link href="/users">Get All Users</Alert.Link>
                 </div>
                 {
                     this.props.onLocationPage ?

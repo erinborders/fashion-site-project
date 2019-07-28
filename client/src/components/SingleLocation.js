@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import city from './images/cityBuildings.jpg'
-import { Breadcrumb } from 'react-bootstrap'
+import { Breadcrumb, Button } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
 import AdminView from './AdminView'
@@ -64,11 +64,11 @@ export default class SingleLocation extends Component {
                             <h1 className="single-location-header">Fashion Vera</h1>
                             {
                                 this.state.inAdminView ?
-                                <button onClick={this.deleteLocation}>Delete Location</button> 
+                                <Button variant="danger" onClick={this.deleteLocation}>Delete Location</Button> 
                                 : null
                             }
                             
-                            <button onClick={this.showAdminView}>Admin View</button>
+                            <Button variant="info" onClick={this.showAdminView}>Admin View</Button>
                             </div>
                             <div>
                             {

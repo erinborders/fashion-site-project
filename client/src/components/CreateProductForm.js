@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import SingleProduct from './SingleProduct'
 
 export default class Products extends Component {
@@ -69,37 +69,42 @@ export default class Products extends Component {
             
                 <h1>Create Product Form</h1>
                     <Form>
+                        <Row>
+                            <Col>
                         <Form.Group controlId="product-name" >
                             <Form.Label>Product Name</Form.Label>
                             <Form.Control size="sm" type="text" name="name" onChange={this.handleInputChange} value={this.state.newProduct.name} />
                         </Form.Group>
-
+                            </Col>
+                            <Col>
                         <Form.Group controlId="product-description">
                             <Form.Label>Product Description</Form.Label>
                             <Form.Control size="sm" type="text" name="description" onChange={this.handleInputChange} value={this.state.newProduct.description} />
                         </Form.Group>
-
+                        </Col>
+                        </Row>
+                        <Row>
+                            <Col>
                         <Form.Group controlId="product-size">
                             <Form.Label>Product Size</Form.Label>
-                            <Form.Control size="sm" as="select" name="size" onChange={this.handleInputChange} value={this.state.newProduct.size} >
-                                <option>XS</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </Form.Control>
+                            <Form.Control size="sm" name="size" onChange={this.handleInputChange} value={this.state.newProduct.size} />
                         </Form.Group>
-
+                        </Col>
+                        <Col>
                         <Form.Group controlId="product-colors">
                             <Form.Label>Product Colors</Form.Label>
-                            <Form.Check name="colors" type="checkbox" label="black" onChange={this.handleInputChange} value={this.state.newProduct.colors} />
+                            <Form.Control size="sm" name="colors" onChange={this.handleInputChange} value={this.state.newProduct.colors} />
                         </Form.Group>
-
+                        </Col>
+                        </Row>
+                        <Row>
+                            <Col>
                         <Form.Group controlId="product-price">
                             <Form.Label>Product Price</Form.Label>
                             <Form.Control size="sm" type="text" name="price" onChange={this.handleInputChange} value={this.state.newProduct.price} />
                         </Form.Group>
-
+                        </Col>
+                        <Col>
                         <Form.Group controlId="product-rating">
                             <Form.Label>Product Rating</Form.Label>
                             <Form.Control size="sm" as="select" name="rating" onChange={this.handleInputChange} value={this.state.newProduct.rating} >
@@ -110,7 +115,8 @@ export default class Products extends Component {
                                 <option>5</option>
                             </Form.Control>
                         </Form.Group>
-
+                        </Col>
+                        </Row>
                         <Form.Group controlId="product-image">
                             <Form.Label>Product Image</Form.Label>
                             <Form.Control size="sm" type="text" name="image" onChange={this.handleInputChange} value={this.state.newProduct.image} />
