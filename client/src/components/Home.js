@@ -26,7 +26,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                {/* TO DO: FIGURE OUT WHY THE ADMIN BUTTON WON'T MOVE FORWARD */}
+                {/* TO DO: STYLE ADMIN BUTTON CONTENTS */}
                 <div className="admin-button">
                 <Button className="navbar-button" variant="outline-light" onClick={this.showAdminView}>Admin View</Button>
                 </div>

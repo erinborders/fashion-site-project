@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Table, Button } from 'react-bootstrap'
 import axios from 'axios';
 
 export default class UserProfile extends Component {
@@ -31,13 +32,16 @@ export default class UserProfile extends Component {
 
     render() {
         return (
-            <div>
-                 
-                        <Link to={`/users/${this.props.id}`}>{this.props.id}</Link>
-                        <p>{this.props.userName}</p>
-                        <button onClick={this.deleteUser}>Delete</button>
-
-            </div>
+            
+                <React.Fragment>
+                    <td>{this.props.id}</td>
+                    <td>{this.props.userName}</td>
+                    <td><Button variant="danger" onClick={this.deleteUser}>Delete</Button></td>
+                </React.Fragment>
+                
+            
+               
+            
         )
     }
 }

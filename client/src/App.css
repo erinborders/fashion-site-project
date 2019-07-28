@@ -63,19 +63,21 @@
   z-index: 0;
 }
 
-.about-header, .contact-header {
+.about-header, .contact-header, .user-header {
   font-family: 'Merriweather Sans', sans-serif;
   font-weight: bold;
   font-style: italic;
 }
 
-.about-background-image, .contact-background-image {
+.about-background-image, .contact-background-image, .users-background-image {
   height: 100vh;
   width: 100vw;
   object-fit: cover;
   position: absolute;
   z-index: -1;
   opacity: 0.3;
+  left: 0;
+  top: 0;
 }
 
 .about-component {
@@ -104,7 +106,7 @@
   z-index: 1;
 }
 
-.contact-component {
+.contact-component, .users-component {
   display: flex;
   height: 100vh;
   justify-content: center;
