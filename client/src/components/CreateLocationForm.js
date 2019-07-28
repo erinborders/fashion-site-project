@@ -3,7 +3,8 @@
  */
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Button, Form } from 'react-bootstrap'
+import Modal from 'react-bootstrap/Modal'
 import SingleLocation from './SingleLocation';
 
 /* Step 2
@@ -83,8 +84,8 @@ export default class Locations extends Component {
     render() {
 
         return (
-            <div>
-                <h3>Add a Location</h3>
+            // <div>
+                /* <h3>Add a Location</h3>
                  <form onSubmit={this.handleCreateSubmit}>
             <div>
               <label htmlFor="neighborhood">Neighborhood:</label>
@@ -95,8 +96,28 @@ export default class Locations extends Component {
               <input id="address" type="text" name="address" onChange={this.handleInputChange} value={this.state.newLocation.address}/>
             </div>
             <button>Create Location</button>
-          </form>
-            </div>
+          </form> */
+                // <Modal>
+                //     <Modal.Header closeButton>
+                //         <Modal.Title>Add a Location</Modal.Title>
+                //     </Modal.Header>
+                //     <Modal.Body>
+                        <Form>
+                            <Form.Group controlId="neighborhood">
+                                <Form.Label>Neighborhood</Form.Label>
+                                <Form.Control type="text" name="neighborhood" onChange={this.handleInputChange} value={this.state.newLocation.neighborhood} />
+                            </Form.Group>
+
+                            <Form.Group controlId="address">
+                                <Form.Label>Address</Form.Label>
+                                <Form.Control type="text" name="address" onChange={this.handleInputChange} value={this.state.newLocation.address} />
+                            </Form.Group>
+
+                            <Button variant="info" onClick={this.handleCreateSubmit}>Create Location</Button>
+                        </Form>
+                    /* </Modal.Body>
+                </Modal> */
+            
         )
     }
 }
