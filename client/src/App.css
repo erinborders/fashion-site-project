@@ -71,6 +71,8 @@
 
 .about-background-image, .contact-background-image, .users-background-image, .single-location-background-image {
   height: 100vh;
+  /* TO DO: TRY SETTING OVERFLOW Y OR MIN HEIGHT TO 900PX */
+  /* overflow-y: scroll; */
   width: 100vw;
   object-fit: cover;
   position: absolute;
@@ -109,6 +111,7 @@
 .contact-component, .users-component {
   display: flex;
   height: 100vh;
+  /* min-height: 900px; */
   justify-content: center;
   align-items: center;
 }

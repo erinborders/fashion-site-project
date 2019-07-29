@@ -7,10 +7,6 @@ const buckhead = {
     neighborhood: "Buckhead"
 }
 
-const midtown = {
-    neighborhood: "Midtown"
-}
-
 const downtown = {
     neighborhood: "Downtown"
 }
@@ -42,34 +38,35 @@ const tealDress = {
     image: './../src/components/images/tealOutfits.jpg'
 }
 
+const halterTop = {
+    name: 'Halter Top',
+    price: '15.00',
+    rating: '5/5',
+    description: 'You better give yourself an extra 15 minutes because you will definitely be checking yourself out everytime you pass a mirror.',
+    size: 'M',
+    colors: 'Steal his soul black',
+    image: './../src/components/images/halterTop.jpg'
+}
+
 
 locationApi.deleteAllLocations()
-    .then(() => usersApi.())
-    .then(() => shopApi.deleteAllShops())
-    .then(() => locationApi.addLocation(buckhead))
+    .then(() => usersApi.deleteAllUsers())
+    .then(() => productApi.deleteAllProducts())
+    .then(() => locationApi.createLocation(buckhead))
     .then((buckhead) => {
-        anotherBrokenEgg.locationId = buckhead._id
-        lululemon.locationId = buckhead._id
-        let brokenEgg = foodApi.addFood(anotherBrokenEgg)
-        let lulu = shopApi.addShop(lululemon)
-        return Promise.all([brokenEgg, lulu])
+        tealDress.locationId = buckhead._id
+        let dress = productApi.createProduct(tealDress)
+        return Promise.all(dress)
     })
-    .then(() => locationApi.addLocation(midtown))
-    .then((midtown) => {
-        papisCubanGrill.locationId = midtown._id
-        modernMystic.locationId = midtown._id
-        let papis = foodApi.addFood(papisCubanGrill)
-        let mystic = shopApi.addShop(modernMystic)
-        return Promise.all([papis, mystic])
-    })
-    .then(() => locationApi.addLocation(downtown))
+    .then(() => locationApi.createLocation(downtown))
     .then((downtown) => {
-        foodShoppe.locationId = downtown._id
-        executiveShop.locationId = downtown._id
-        let shoppe = foodApi.addFood(foodShoppe)
-        let execShop = shopApi.addShop(executiveShop)
-        return Promise.all([shoppe, execShop])
+        halterTop.locationId = downtown._id
+        let shirt = productApi.createProduct(halterTop)
+        return Promise.all(shirt)
     })
+    .then(() => usersApi.createUser(jonathan))
+    .then(() => usersApi.createUser(bobby))
+    .then(() => usersApi.createUser(tan))
     .then(() => {
         console.log('about to exit')
         process.exit()
