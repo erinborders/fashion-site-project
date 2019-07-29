@@ -12,7 +12,6 @@ import Footer from './Footer'
 
 export default class Home extends Component {
     state = {
-        inAdminView: false,
         onHomePage: true,
         showLogInModal: false,
         newLocation: {
@@ -45,6 +44,7 @@ export default class Home extends Component {
         this.setState({newLocation})
     }
 
+    //handle the submit for the create location form
     handleCreateSubmit = (event) => {
         event.preventDefault()
 
@@ -54,13 +54,8 @@ export default class Home extends Component {
                 this.getAllLocations()
             })
     }
-    
-    showAdminView = () => {
-        this.setState((state) => {
-            return {inAdminView: !state.inAdminView}
-        })
-    }
 
+    //to open create account form modal
     getInitialState() {
         return { showLogInModal: false };
       }
@@ -77,10 +72,12 @@ export default class Home extends Component {
         return (
             <div>
               
+              {/* opens admin view to show create location form and get all users link */}
                 <div className="admin-button">
                 <Button className="navbar-button" variant="outline-light" onClick={this.open}>Admin View</Button>
                 </div>
 
+                {/* the admin view modal */}
                 <Modal show={this.state.showLogInModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>Admin View</Modal.Title>
@@ -104,70 +101,45 @@ export default class Home extends Component {
                         </Form>
                     </Modal.Body>
                 </Modal>
-                {/* {
-                    this.state.inAdminView ?
-                    <div>
-                    <AdminView 
-                        onHomePage={this.state.onHomePage}
-                        showLogInModal={this.state.showLogInModal}
-                        close={this.close}/>
-                </div> : null
-                } */}
+                
                 <div>
                     <Carousel className="home-carousel" interval="2000" fade="true" indicators={false} controls={false}>
                         <Carousel.Item >
                             <img 
-                            src={Posing} 
-                            // height="100%" 
+                            src={Posing}  
                             width="100%"
-                            // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
                             src={BlackGirlsDancing} 
-                            // height="500px" 
                             width="100%"
-                            // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
-                            src={Walking} 
-                            // height="500px" 
+                            src={Walking}  
                             width="100%"
-                            // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
-                            src={SquadMagic} 
-                            // height="500px" 
+                            src={SquadMagic}  
                             width="100%"
-                            // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img 
-                            src={PrimpingHair} 
-                            // height="500px" 
+                            src={PrimpingHair}  
                             width="100%"
-                            // style={{objectFit: "contain"}}
                             />
                         </Carousel.Item>
                     </Carousel>
+
+                    {/* the fashion vera title */}
                     <span className="fashion-vera-title-home"><h1>Fashion Vera</h1></span>
                 </div>
-                {/* <div>
-                    <img
-                        src={TealOutfits}
-                        height="500px" 
-                        width="950px"
-                        style={{objectFit: "contain"}}
-                        />
-                </div>
-                <h1>Products</h1>
-                <Products /> */}
+                
                 <Footer />
             </div>
         )

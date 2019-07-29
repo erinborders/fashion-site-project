@@ -37,10 +37,7 @@ export default class UserProfile extends Component {
                     <td>{this.props.id}</td>
                     <td>{this.props.userName}</td>
                     <td><Button variant="danger" onClick={this.deleteUser}>Delete</Button></td>
-                </React.Fragment>
-                
-            
-               
+                </React.Fragment> 
             
         )
     }

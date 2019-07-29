@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Locations from './Locations'
 import LogIn from './LogIn'
-import { Button, Navbar, NavDropdown, Nav } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap'
 
 export default class NavBar extends Component {
     state = {
@@ -35,17 +34,13 @@ export default class NavBar extends Component {
                 <Navbar.Collapse>
                   <Nav className="mr-auto">
                     <Nav.Link>
-                      {/* TO DO: DELETE IS LOGGED IN */}
-                    {/* {
-                      this.state.isLoggedIn ? */}
+                      
                       <LogIn 
                           isLoggedIn={this.state.isLoggedIn} 
                           mockLogIn={this.props.mockLogIn}
                           setStateOfUsers={this.props.setStateOfUsers}
                           handleSubmit={this.handleSubmit}/>
-                      {/* // : <Button className="navbar-button" variant="outline-light" onClick={this.handleLogInToggle}>Log In</Button> */}
                       
-                    {/* // } */}
                     </Nav.Link>
                     <NavDropdown title="Locations">
                       <NavDropdown.Item>
@@ -55,10 +50,6 @@ export default class NavBar extends Component {
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>
-                {/* <a href="#">Search</a> */}
-                
-                {/* <Link to="">Account</Link> */}
-                
                 
             </div>
         )
