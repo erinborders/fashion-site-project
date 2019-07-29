@@ -31,12 +31,13 @@ export default class Home extends Component {
             axios.get('/api/products')
           ])
           .then(axios.spread((locations, products) => {
-            //... but this callback will be executed only when both requests are complete.
+            //this callback will be executed only when both requests are complete.
             this.setState({locations: locations.data})
             this.setState({products: products.data})
           }))
     }
 
+    //handle the input fields for the create location form
     handleInputChange = (event) => {
         const newLocation = {...this.state.newLocation}
         newLocation[event.target.name] = event.target.value

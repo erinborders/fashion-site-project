@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import SingleProduct from './SingleProduct'
 
 export default class Products extends Component {
 
@@ -19,13 +18,7 @@ export default class Products extends Component {
         isNewProductFormDisplayed: false
     }
 
-    /* Step 4
-    * Use componentDidMount to retrieve any data to display
-    *   Here you can make calls to your local express server
-    *   or to an external API
-    *   setState can be run here as well
-    *   -REMINDER remember `setState` it is an async function
-    */
+    
     componentDidMount() {
         this.getAllProducts()
     }
@@ -33,11 +26,11 @@ export default class Products extends Component {
     getAllProducts() {
         axios.get(`/api/products`)
             .then((res) => {
-                // console.log(res.data)
                 this.setState({products: res.data})
             })
     }
 
+    //to handle the input fields of the create product form
     handleInputChange = (event) => {
         const newProduct = {...this.state.newProduct}
         newProduct[event.target.name] = event.target.value
@@ -46,6 +39,7 @@ export default class Products extends Component {
         this.setState({newProduct})
     }
 
+    //to submit the newly created product
     handleCreateSubmit = (event) => {
         event.preventDefault()
       
@@ -54,12 +48,6 @@ export default class Products extends Component {
                 this.setState({isNewProductFormDisplayed: false})
                 this.getAllProducts()
             })
-    }
-
-    handleCreateToggleButton = () => {
-        this.setState((state) => {
-            return {isNewProductFormDisplayed: !state.isNewProductFormDisplayed}
-        })
     }
 
     render() {

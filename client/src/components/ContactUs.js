@@ -9,6 +9,8 @@ export default class ContactUs extends Component {
         showModal: false
     }
 
+    //the functions to bring up and close the modal with a thank you message
+
     getInitialState() {
         return { showModal: false };
       }
@@ -52,6 +54,9 @@ export default class ContactUs extends Component {
                         end result, it's about what you learn along the 
                         way. Let us know what we can learn!</p>
                     </div>
+
+                    {/* the form to leave a message */}
+
                         <Form>
                             <Form.Row>
                                 <Form.Control className="contact-message-input" placeholder="Message" as="textarea" rows="3" />
@@ -72,6 +77,8 @@ export default class ContactUs extends Component {
                         <p>Fashion Vera</p>
                         </div>
                      
+                    {/* modal with the thank you message */}
+
                             <Modal show={this.state.showModal} onHide={this.close}>
                             <Modal.Header closeButton>
                                 <Modal.Title>Thanks for the message!</Modal.Title>
