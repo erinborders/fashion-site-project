@@ -36,6 +36,10 @@ export default class Home extends Component {
           }))
     }
 
+    refreshPage() {
+        window.location.reload(false);
+      }
+
     //handle the input fields for the create location form
     handleInputChange = (event) => {
         const newLocation = {...this.state.newLocation}
@@ -51,7 +55,7 @@ export default class Home extends Component {
         axios.post('/api/locations', this.state.newLocation)
             .then(() => {
                 this.setState({isLocationLinkClicked: false})
-                this.getAllLocations()
+                this.refreshPage()
             })
     }
 

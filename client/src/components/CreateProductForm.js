@@ -30,6 +30,10 @@ export default class Products extends Component {
             })
     }
 
+    refreshPage() {
+        window.location.reload(false);
+      }
+
     //to handle the input fields of the create product form
     handleInputChange = (event) => {
         const newProduct = {...this.state.newProduct}
@@ -46,7 +50,7 @@ export default class Products extends Component {
         axios.post(`/api/products`, this.state.newProduct)
             .then(() => {
                 this.setState({isNewProductFormDisplayed: false})
-                this.getAllProducts()
+                this.refreshPage()
             })
     }
 
