@@ -71,9 +71,9 @@ export default class SingleProduct extends Component {
                         {
                             this.state.hasInfoButtonBeenClicked ?
                             <Card.Text>
-                                {this.props.description}
-                                {this.props.size}
-                                {this.props.colors}
+                                <p>{this.props.description}</p>
+                                <p>Size: {this.props.size}</p>
+                                <p>Colors: {this.props.colors}</p>
                             </Card.Text> : null
                         }
                         <Card.Text>${this.props.price}</Card.Text>
