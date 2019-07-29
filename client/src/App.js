@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home.js'
 import NavBar from './components/NavBar'
-import Footer from './components/Footer'
 import SingleLocation from './components/SingleLocation'
 import Products from './components/Products'
 import UserProfile from './components/UserProfile'
@@ -11,7 +10,6 @@ import About from './components/About'
 import ContactUs from './components/ContactUs'
 import axios from 'axios'
 import './App.css';
-import SingleProduct from './components/SingleProduct.js';
 
 class App extends Component {
   state = {
@@ -61,15 +59,11 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/contact" render={(props) => <ContactUs {...props} />} />
-            {/* <Route path="/contact" component={ContactUs} /> */}
             <Route path="/locations/:locationId" render={(props) => <SingleLocation {...props} />} />
-            {/* <Route path="/products/:productId" component={SingleProduct} /> */}
             <Route path="/products" render={(props) => <Products {...props} />} />
             <Route path="/users/:userId" render={(props) => <UserProfile {...props} setStateOfUsers={this.setStateOfUsers} />} />
-            {/* <Route path="/users/:userId" component={UserProfile} /> */}
             <Route path="/users" render={(props) => <Users {...props} users={this.state.users} />} />
           </Switch>
-          {/* <Footer /> */}
         </Router>
       </div>
     );

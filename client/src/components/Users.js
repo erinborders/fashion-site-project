@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import UserProfile from './UserProfile';
 import { Breadcrumb, Table } from 'react-bootstrap'
 import city from './images/cityBuildings.jpg'
-import axios from 'axios'
 
 export default class Users extends Component {
 
@@ -13,7 +12,6 @@ export default class Users extends Component {
                 
                 <tr>
                     <UserProfile 
-                        // setStateOfUsers={this.props.setStateOfUsers}
                         key={user._id}
                         userName={user.userName}
                         password={user.password}

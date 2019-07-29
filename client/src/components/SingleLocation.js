@@ -79,7 +79,7 @@ export default class SingleLocation extends Component {
                             }
                             
                         </div>
-                            {/* TO DO: ORGANIZE THIS */}
+                            
                             
                         {this.state.products.map(product => {
                             if(product.locationId == this.props.match.params.locationId) {
@@ -101,7 +101,7 @@ export default class SingleLocation extends Component {
                             }
                             
                         })}
-                        {/* </div> */}
+                       
                         </div>
                     </React.Fragment>
                         : null

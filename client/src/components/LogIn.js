@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap'
 import Modal from 'react-bootstrap/Modal'
 
 export default class LogIn extends Component {
-  
   state = {
     users: [], 
     newUser: {
@@ -29,6 +27,7 @@ export default class LogIn extends Component {
         })
   }
 
+  //to open create account modal
   getInitialState() {
     return { showLogInModal: false };
   }
@@ -41,13 +40,7 @@ export default class LogIn extends Component {
     this.setState({ showLogInModal: true });
   }
 
-//   getOneUser() {
-//     axios.get(`/api/users/${this.props.match.params.userId}`)
-//         .then(() => {
-
-//         })
-// }
-
+  //handle change in create account modal
   handleChange = (e) => {
     const updatedUser = {...this.state.newUser}
     const inputField = e.target.name
@@ -57,6 +50,7 @@ export default class LogIn extends Component {
     this.setState({newUser: updatedUser})
   }
 
+  //handle submit for create account modal
   handleSubmit = (e) => {
     e.preventDefault()
 
@@ -77,6 +71,7 @@ export default class LogIn extends Component {
 
     return (
       <div>
+        {/* button in the navbar that opens the log in modal */}
         <Button size="sm" variant="light" onClick={this.open}>Log In</Button>
 
         <Modal show={this.state.showLogInModal} onHide={this.close}>
