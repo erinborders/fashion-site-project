@@ -59,7 +59,11 @@ export default class SingleProduct extends Component {
                     {
                         this.state.product.image ?
                         <div>
-                        <Card.Img variant="top" src={this.state.product.image} alt={`A picture of ${this.props.name}`} />
+                        <Card.Img 
+                            variant="top" 
+                            src={this.state.product.image} 
+                            alt={`A picture of ${this.props.name}`} 
+                            style={{height: '400px', objectFit: 'contain'}}/>
                         </div> : null
                     }
                     <Card.Body>

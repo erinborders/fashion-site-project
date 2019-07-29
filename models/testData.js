@@ -36,8 +36,8 @@ const pinkDress = {
     rating: '4/5',
     description: 'The perfect dress for your hot girl summer.',
     size: 'M',
-    colors: 'Dusty Rose???'
-    // image: 'https://unsplash.com/photos/Fd2iBxvXljA'
+    colors: 'Dusty Rose???',
+    image: 'https://images.unsplash.com/photo-1551310343-e6ff4e4cb2de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80'
 }
 
 const blackBodySuit = {
@@ -46,8 +46,8 @@ const blackBodySuit = {
     rating: '5/5',
     description: 'You better give yourself an extra 15 minutes because you will definitely be checking yourself out everytime you pass a mirror.',
     size: 'M',
-    colors: 'Steal his soul black'
-    // image: 'https://unsplash.com/photos/1xmzY3_3VuA'
+    colors: 'Steal his soul black',
+    image: 'https://images.unsplash.com/photo-1523464565951-03618501d481?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80'
 }
 
 
