@@ -26,7 +26,7 @@ const mongoose = require('./connection.js')
  * NOTE: skip this if you are not using mongoose
  *
  */
-// TO DO: CHANGE RATING AND PRICE TO NUMBERS
+
 const ProductSchema = new mongoose.Schema({
  name: String,
  price: String,

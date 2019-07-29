@@ -1,3 +1,5 @@
+// TO DO: FIGURE OUT HOW TO INCLUDE IMAGES FOR PRODUCTS
+
 const locationApi = require('./location.js')
 const usersApi = require('./user.js')
 const productApi = require('./product.js')
@@ -34,8 +36,8 @@ const tealDress = {
     rating: '4/5',
     description: 'The perfect dress for your hot girl summer.',
     size: 'M',
-    colors: 'Teal???',
-    image: './../src/components/images/tealOutfits.jpg'
+    colors: 'Teal???'
+    // image: {tealOutfits}
 }
 
 const halterTop = {
@@ -44,8 +46,8 @@ const halterTop = {
     rating: '5/5',
     description: 'You better give yourself an extra 15 minutes because you will definitely be checking yourself out everytime you pass a mirror.',
     size: 'M',
-    colors: 'Steal his soul black',
-    image: './../src/components/images/halterTop.jpg'
+    colors: 'Steal his soul black'
+    // image: {halterTop}
 }
 
 

@@ -24,7 +24,7 @@ export default class Home extends Component {
     componentDidMount() {
         this.getAllLocations()
     }
-// TO DO: CHANGE SO THAT IT REFRESHES THE PAGE WITH NEW LOCATION
+
     getAllLocations() {
         axios.all([
             axios.get('/api/locations'),
@@ -75,7 +75,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                {/* TO DO: STYLE ADMIN BUTTON CONTENTS */}
+              
                 <div className="admin-button">
                 <Button className="navbar-button" variant="outline-light" onClick={this.open}>Admin View</Button>
                 </div>

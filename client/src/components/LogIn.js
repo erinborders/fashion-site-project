@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap'
 import Modal from 'react-bootstrap/Modal'
-// TO DO: RENAME THIS FILE CREATE ACCOUNT
+
 export default class LogIn extends Component {
   
   state = {
@@ -100,23 +100,7 @@ export default class LogIn extends Component {
             </Form>
           </Modal.Body>
         </Modal>
-        {/* TO DO: CHANGE THIS SO THE CREATE ACCOUNT FORM IS ONLY SHOWN WHEN THE LOG IN BUTTON'S CLICKED */}
-        {/* {
-            this.state.isLoggedIn ?
-            // <Link to="/user-profile">Account</Link>
-            <button>Log In</button> : 
-            <form onSubmit={this.handleSubmit}>
-            <div>
-              <label htmlFor="userName">User Name</label>
-              <input type="text" name="userName" onChange={this.handleChange} value={this.state.newUser.userName} />
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" onChange={this.handleChange} value={this.state.newUser.password}/>
-            </div>
-            <button>Create Account</button>
-          </form>
-        } */}
+        
       </div>
     )
   }

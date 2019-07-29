@@ -52,7 +52,7 @@ export default class SingleProduct extends Component {
         return (
             <div>
                 
-                {/* TO DO: PUT IMAGES INTO TEST DATA FOR HEROKU SO I CAN HAVE A CAROUSEL */}
+                {/* TO DO: PUT IMAGES INTO TEST DATA FOR HEROKU */}
                 
                 <Card style={{width: '30rem'}}>
                     {/* if there's an image, show it */}
@@ -151,8 +151,7 @@ export default class SingleProduct extends Component {
                     {/* <Link to={`/products/${this.state.product._id}`}>{this.props.name}</Link> */}
                 </div>
 
-                {/* TO DO: CHANGE THIS HEADER */}
-                {/* TO DO: CHANGE DELETE FUNCTION SO IT ACTUALLY REFRESHES THE PAGE */}
+                
                 {/* {
                     this.props.inAdminView ?
                     <div>
@@ -164,62 +163,5 @@ export default class SingleProduct extends Component {
         )
     }
 }
- {/* <form onSubmit={this.handleSubmit}>
-                            <label htmlFor="product-name" >Product Name:</label>
-                            <input 
-                                id="product-name" 
-                                name="name" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.product.name} />
+ 
 
-                            <label htmlFor="product-description" >Product Description:</label>
-                            <input 
-                                id="product-description" 
-                                name="description" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.product.description}/>
-
-                            <label htmlFor="product-size" >Product Size:</label>
-                            <input 
-                                id="product-size" 
-                                name="size" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.product.size}/>
-                                
-                            <label htmlFor="product-colors" >Product Colors:</label>
-                            <input 
-                                id="product-colors" 
-                                name="colors" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.product.colors}/>
-
-                            <label htmlFor="product-price" >Product Price:</label>
-                            <input 
-                                id="product-price" 
-                                name="price" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.product.price}/>
-
-                            <label htmlFor="product-rating" >Product Rating:</label>
-                            <input 
-                                id="product-rating" 
-                                name="rating" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.product.rating}/>
-
-                            <label htmlFor="product-image">Product Image</label>
-                            <input
-                                id="product-image"
-                                name="image"
-                                type="text"
-                                onChange={this.handleInputChange}
-                                value={this.state.product.image} />
-
-                            <input type="submit" value="Edit Product" />
-                        </form>  */}

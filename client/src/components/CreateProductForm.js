@@ -125,71 +125,7 @@ export default class Products extends Component {
                         <Button variant="info" type="submit" onClick={this.handleCreateSubmit} >Create Product</Button>
                     </Form>
 
-                        {/* TO DO: TEST CREATE FORM THEN DELETE THIS */}
-                            {/* <form onSubmit={this.handleCreateSubmit}>
-                            <label htmlFor="product-name" >Product Name:</label>
-                            <input 
-                                id="product-name" 
-                                name="name" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.name} />
-
-                            <label htmlFor="product-description" >Product Description:</label>
-                            <input 
-                                id="product-description" 
-                                name="description" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.description}/>
-
-                            <label htmlFor="product-size" >Product Size:</label>
-                            <input 
-                                id="product-size" 
-                                name="size" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.size}/>
-                                
-                            <label htmlFor="product-colors" >Product Colors:</label>
-                            <input 
-                                id="product-colors" 
-                                name="colors" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.colors}/>
-
-                            <label htmlFor="product-price" >Product Price:</label>
-                            <input 
-                                id="product-price" 
-                                name="price" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.price}/>
-
-                            <label htmlFor="product-rating" >Product Rating:</label>
-                            <input 
-                                id="product-rating" 
-                                name="rating" 
-                                type="text" 
-                                onChange={this.handleInputChange} 
-                                value={this.state.newProduct.rating}/>
-
-                            <label htmlFor="product-image">Product Image</label>
-                            <input
-                                id="product-image"
-                                name="image"
-                                type="text"
-                                onChange={this.handleInputChange}
-                                value={this.state.newProduct.image} />
-
-                            <input type="submit" value="Create Product" />
-                        </form>  */}
-                        
-                        
-                        
-
-                    {/* // } */}
+                       
             </div>
         )
     }
