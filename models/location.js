@@ -64,6 +64,10 @@ function deleteLocation (locationId) {
   return LocationCollection.findByIdAndDelete(locationId)
 }
 
+function deleteAllLocations () {
+  return LocationCollection.deleteMany()
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
@@ -74,5 +78,6 @@ module.exports = {
   getLocation,
   createLocation,
   updateLocation,
-  deleteLocation
+  deleteLocation,
+  deleteAllLocations
 }

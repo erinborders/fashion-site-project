@@ -75,6 +75,10 @@ function deleteProduct (productId) {
   return ProductCollection.findByIdAndDelete(productId)
 }
 
+function deleteAllProducts () {
+  return ProductCollection.deleteMany()
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
@@ -85,5 +89,6 @@ module.exports = {
   getProduct,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  deleteAllProducts
 }

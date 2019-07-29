@@ -64,6 +64,10 @@ function deleteUser (userId) {
   return UserCollection.findByIdAndDelete(userId)
 }
 
+function deleteAllUsers() {
+  return UserCollection.deleteMany()
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
@@ -74,5 +78,6 @@ module.exports = {
   getUser,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  deleteAllUsers
 }
