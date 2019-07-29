@@ -56,13 +56,13 @@ locationApi.deleteAllLocations()
     .then((buckhead) => {
         tealDress.locationId = buckhead._id
         let dress = productApi.createProduct(tealDress)
-        return Promise.all(dress)
+        return Promise.all([dress])
     })
     .then(() => locationApi.createLocation(downtown))
     .then((downtown) => {
         halterTop.locationId = downtown._id
         let shirt = productApi.createProduct(halterTop)
-        return Promise.all(shirt)
+        return Promise.all([shirt])
     })
     .then(() => usersApi.createUser(jonathan))
     .then(() => usersApi.createUser(bobby))
