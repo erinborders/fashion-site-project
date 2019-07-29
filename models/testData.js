@@ -30,24 +30,24 @@ const tan = {
 }
 
 //products
-const tealDress = {
-    name: 'Teal Dress',
+const pinkDress = {
+    name: 'Dusty Rose Shift',
     price: '25.00',
     rating: '4/5',
     description: 'The perfect dress for your hot girl summer.',
     size: 'M',
-    colors: 'Teal???'
-    // image: {tealOutfits}
+    colors: 'Dusty Rose???'
+    // image: 'https://unsplash.com/photos/Fd2iBxvXljA'
 }
 
-const halterTop = {
-    name: 'Halter Top',
+const blackBodySuit = {
+    name: 'Black Body Suit',
     price: '15.00',
     rating: '5/5',
     description: 'You better give yourself an extra 15 minutes because you will definitely be checking yourself out everytime you pass a mirror.',
     size: 'M',
     colors: 'Steal his soul black'
-    // image: {halterTop}
+    // image: 'https://unsplash.com/photos/1xmzY3_3VuA'
 }
 
 
@@ -56,14 +56,14 @@ locationApi.deleteAllLocations()
     .then(() => productApi.deleteAllProducts())
     .then(() => locationApi.createLocation(buckhead))
     .then((buckhead) => {
-        tealDress.locationId = buckhead._id
-        let dress = productApi.createProduct(tealDress)
+        pinkDress.locationId = buckhead._id
+        let dress = productApi.createProduct(pinkDress)
         return Promise.all([dress])
     })
     .then(() => locationApi.createLocation(downtown))
     .then((downtown) => {
-        halterTop.locationId = downtown._id
-        let shirt = productApi.createProduct(halterTop)
+        blackBodySuit.locationId = downtown._id
+        let shirt = productApi.createProduct(blackBodySuit)
         return Promise.all([shirt])
     })
     .then(() => usersApi.createUser(jonathan))
