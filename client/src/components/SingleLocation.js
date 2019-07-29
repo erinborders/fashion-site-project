@@ -18,6 +18,10 @@ export default class SingleLocation extends Component {
     componentDidMount() {
         this.getProducts()
     }
+
+    refreshPage() {
+        window.location.reload(false);
+      }
     
     getProducts() {
         axios.get(`/api/products`)
@@ -32,6 +36,7 @@ export default class SingleLocation extends Component {
         axios.delete(`/api/locations/${this.props.match.params.locationId}`)
             .then(() => {
                 this.setState({redirect: true})
+                this.refreshPage()
             })
     }
 

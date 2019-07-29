@@ -4,29 +4,18 @@ import { Table, Button } from 'react-bootstrap'
 import axios from 'axios';
 
 export default class UserProfile extends Component {
-    state = {
-        users: []
-    }
-    
     // TO DO: SET A LOCAL HISTORY FOR USERS
 
-    componentDidMount() {
-        this.getAllUsers()
-    }
-  
-    getAllUsers() {
-        axios.get('/api/users')
-          .then(res => {
-              this.setState({users: res.data})
-          })
-    }
+    refreshPage() {
+        window.location.reload(false);
+      }
 
     deleteUser = (e) => {
         e.preventDefault() 
 
         axios.delete(`/api/users/${this.props.id}`)
             .then(() => {
-                this.getAllUsers()
+                this.refreshPage()
             })
     }
 

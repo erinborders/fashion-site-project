@@ -15,6 +15,10 @@ export default class SingleProduct extends Component {
             })
     }
 
+    refreshPage() {
+        window.location.reload(false);
+      }
+
     handleInputChange = (event) => {
         const product = {...this.state.product}
         product[event.target.name] = event.target.value
@@ -27,9 +31,8 @@ export default class SingleProduct extends Component {
         
         axios.put(`/api/products/${this.props.id}`, this.state.product)
             .then(res => {
-                this.setState({
-                    product: res.data
-                })
+                this.setState({product: res.data})
+                this.refreshPage()
             })
     }
 
@@ -37,6 +40,7 @@ export default class SingleProduct extends Component {
         axios.delete(`/api/products/${this.props.id}`)
             .then(res => {
                 this.setState({product: res.data})
+                this.refreshPage()
             })
     }
 
